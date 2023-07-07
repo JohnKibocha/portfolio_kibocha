@@ -8,22 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../static/icons/favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../static/icons/style.css">
+    <link rel="stylesheet" href="../static/style.css">
     <title></title>
 </head>
 <body>
 <article>
-    <nav class="navbar">
-<div class="navbar" id="myNavbar">
-    <a href="#profile">My Profile</a>
-    <a href="#blogs">Blogs</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-      <i class="material-icons">menu</i>
+   <nav class="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Logo">
     </a>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="material-icons">menu</i>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" class="nav-link">Home</a></li>
+      <li><a href="#" class="nav-link">About</a></li>
+      <li><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="btn">Sign Up</button>
   </div>
-
-    </nav>
+</nav>
 </article>
 </body>
 </html>
