@@ -8,7 +8,7 @@ function search() {
     input.value = ""; // Clear the input field after searching
 }
 
-const placeholderTexts = ["Projects", "Blogs"];
+const placeholderTexts = ["Projects", "Blogs", "Anything", "Content", "Documentation"];
 
 function animatePlaceholder() {
     const input = document.getElementById("search-input");
@@ -118,51 +118,58 @@ function createSnippet() {
     // Return the snippet element
     return snippet;
 }
-
-// A function to animate a snippet element
+// A function to animate a snippet element within the welcome screen section
 function animateSnippet(snippet) {
-    // Get the ring element and its dimensions
-    let ring = document.getElementById("ring");
-    let ringWidth = ring.offsetWidth;
-    let ringHeight = ring.offsetHeight;
+  // Get the welcome screen section element and its dimensions
+  let welcomeScreen = document.querySelector('.welcome-screen');
+  let welcomeScreenWidth = welcomeScreen.offsetWidth;
+  let welcomeScreenHeight = welcomeScreen.offsetHeight;
 
-    // Get the angle and radius of the snippet's position on the ring
-    let angle = Math.random() * Math.PI * 2; // Random angle between 0 and 2π
-    let radius = (ringWidth / 2) - ringWidth / (Math.random() * (10 - 5) + 5); // Random radius between half and quarter of the ring width
+  // Get the angle and radius of the snippet's position within the welcome screen section
+  let angle = Math.random() * Math.PI * 2; // Random angle between 0 and 2π
+  let radius = Math.min(welcomeScreenWidth, welcomeScreenHeight) / 2 - snippet.offsetWidth; // Random radius within the welcome screen section
 
-    // Calculate the x and y coordinates of the snippet's position on the ring
-    let x = ringWidth / 2 + radius * Math.cos(angle);
-    let y = ringHeight / 2 + radius * Math.sin(angle);
+  // Calculate the x and y coordinates of the snippet's position within the welcome screen section
+  let x = welcomeScreenWidth / 2 + radius * Math.cos(angle);
+  let y = welcomeScreenHeight / 2 + radius * Math.sin(angle);
 
-    // Set the snippet's initial position on the ring
-    snippet.style.left = x + "px";
-    snippet.style.top = y + "px";
+  // Set the snippet's position within the welcome screen section
+  snippet.style.position = 'absolute';
+  snippet.style.left = x + 'px';
+  snippet.style.top = y + 'px';
 
-    // Append the snippet to the ring element
-    ring.appendChild(snippet);
+  // Append the snippet to the welcome screen section element
+  welcomeScreen.appendChild(snippet);
 
-    // Set a random duration for the animation between one and three seconds
-    let duration = Math.random() * 2000 + 1000;
+  // Set a random duration for the animation between one and three seconds
+  let duration = Math.random() * 2000 + 1000;
 
-    // Set a random direction for the animation (inward or outward)
-    let direction = Math.random() < 0.5 ? -1 : 1;
+  // Set a random direction for the animation (inward or outward)
+  let direction = Math.random() < 0.5 ? -1 : 1;
 
-    // Set the animation keyframes
-    let keyframes = [{transform: "scale(1)", opacity: 1, offset: 0}, {transform: "scale(2)", opacity: 0, offset: 1},];
+  // Set the animation keyframes
+  let keyframes = [
+    { transform: 'scale(1)', opacity: 1, offset: 0 },
+    { transform: 'scale(2)', opacity: 0, offset: 1 },
+  ];
 
-    // Set the animation options
-    let options = {
-        duration: duration, iterations: 1, easing: "ease-out",
-    };
+  // Set the animation options
+  let options = {
+    duration: duration,
+    iterations: 1,
+    easing: 'ease-out',
+  };
 
-    // Create the animation object
-    let animation = snippet.animate(keyframes, options);
+  // Create the animation object
+  let animation = snippet.animate(keyframes, options);
 
-    // When the animation ends, remove the snippet element
-    animation.onfinish = function () {
-        ring.removeChild(snippet);
-    };
+  // When the animation ends, remove the snippet element
+  animation.onfinish = function () {
+    welcomeScreen.removeChild(snippet);
+  };
 }
+
+// Rest of the code...
 
 // A function to create and animate a new snippet every 100 milliseconds
 function generateSnippets() {
@@ -177,11 +184,16 @@ window.onload = generateSnippets;
 
 // Welcome Screen Animation END
 
-function toggleMenu() {
-    var navLinks = document.getElementById("nav-links");
-    if (navLinks.style.display === "none") {
-      navLinks.style.display = "flex";
+
+
+// Navigation Bar START
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
     } else {
-      navLinks.style.display = "none";
+        x.className = "topnav";
     }
-  }
+}
+
+// Navigation Bar END

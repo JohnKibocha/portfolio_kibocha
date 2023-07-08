@@ -20,24 +20,93 @@
 </header>
 
 <main>
-    <div class="search-bar">
+    <article aria-label="search">
+        <div class="search-bar">
+        <label for="search-input"></label>
         <input type="text" id="search-input" placeholder="Search Anything"/>
         <button id="search-button" onclick="search()"><i class="material-icons">search</i></button>
     </div>
-    <article>
+    </article>
+    <br><br>
+   <article aria-labelledby="welcome-screen">
+    <section class="welcome-screen">
+{#      <div class="animations">#}
+{#        <div id="ring"></div>#}
+{#      </div>#}
+      <div id="logo"></div>
+      <div class="welcome-image">
+        <img src="../static/images/John%20Kibocha%20-%20Logo.svg" alt="Welcome Image"/>
+      </div>
+    </section>
+  </article>
+    <br><br>
+    <article aria-label="about-me">
+        <div class="container">
+            <h1 class="heading" style="font-size: 24px">Hi, I'm John Kibocha</h1>
+            <p class="paragraph">I am a Software Engineer specializing in Software Development, Web Development and
+                System Development. I love creating automated software systems that ease the user’s work.
+                I am currently taking my degree in Business Information Technology at Dedan Kimathi University of
+                Technology. </p>
+            <a href="profile.html" class="button">Go to Profile</a>
+        </div>
+    </article>
+    <br><br>
+    <article aria-label="skills-and-experience">
 
-        <section aria-label="welcome-screen">
-            <div id="ring">
-                <div id="logo">
+        <div class="card">
+            <h1>Skills & Experience</h1>
+            <div class="table">
+                <div class="column">
+                    <i class="material-icons icon"><img src="../static/icons/cssIcon.svg" alt="Css Icon"></i>
+                    <div class="heading">Web Development</div>
+                    <div class="description">I create websites that are clean, simple and that <br>do what they claim to
+                        do!
+                    </div>
+                    <br><br>
+                    <div class="heading">What I’m good at</div>
+                    <div class="description">
+                        <p>Web Design</p>
+                        <p>UI/UX Design</p>
+                        <p>Front-End Development</p>
+                        <p>Backend Development</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <i class="material-icons icon"><img src="../static/icons/Software-dev.png" alt="Css Icon"></i>
+                    <div class="heading">Software Development</div>
+                    <div class="description">I find designing and implementing software systems from scratch
+                        refreshing.
+                    </div>
+                    <br><br>
+                    <div class="heading">What I can Do</div>
+                    <div class="description">
+                        <p>Android Development</p>
+                        <p>iOS Development</p>
+                        <p>Windows Development</p>
+                        <p>macOS Development</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <i class="material-icons icon"><img src="../static/icons/system-dev.png" alt="Css Icon"></i>
+                    <div class="heading">System Development</div>
+                    <div class="description">I consider every software I make a system. A living thing that solves
+                        problems and can communicate with other software systems.
+                    </div>
+                    <br><br>
+                    <div class="heading">What I Know</div>
+                    <div class="description">
+                        <p>Linux Server Administration</p>
+                        <p>System Analysis & Design</p>
+                        <p></p>DevOPs
+                    </div>
                 </div>
             </div>
-            <div class="welcome-image">
-  <img src="../static/images/John%20Kibocha%20-%20Logo.svg" alt="Welcome Image" />
-</div>
-
-        </section>
+        </div>
     </article>
+    <br><br>
+    <article aria-label="projects">
 
+    </article>
 </main>
 
 <footer>
