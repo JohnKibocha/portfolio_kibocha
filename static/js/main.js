@@ -8,7 +8,7 @@ function search() {
     input.value = ""; // Clear the input field after searching
 }
 
-const placeholderTexts = ["Projects", "Blogs", "Anything", "Content", "Documentation"];
+const placeholderTexts = ["Projects...", "Blogs...", "Anything...", "Content...", "Documentation..."];
 
 function animatePlaceholder() {
     const input = document.getElementById("search-input");
@@ -30,27 +30,26 @@ animatePlaceholder();
 let snippets = [
     "<div class=\"container\">",
     "public class HelloWorld {",
-    "int x = y + z;",
+    "int x = y;",
     "def add(a, b):",
     "#include <iostream>",
-    ".box {",
+    ".box { width: 100vw; }",
     "console.log('Hello, world!');",
     "using System;",
     "return a + b;",
-    "}",
     "</div>",
     "public static void Main() {",
     "float f = sin(3.14);",
     "print(add(2,3))",
     "using namespace std;",
     "display: flex;",
-    "document.getElementById('logo').style.color = 'red';",
+    "document.getElementById('logo');",
     "};",
     "};",
     "align-items: center;",
-    "let name = prompt('What is your name?');",
+    "let name = prompt('your name?');",
     "Console.WriteLine(Hello, world!);",
-    "for (int i =0; i < n; i++) {",
+    "for (int i =0; i < n;",
     "if (x > y) {",
     "import math",
     "#define PI3.14",
@@ -58,25 +57,27 @@ let snippets = [
     "alert('Hello, ' + name);",
     "public class HelloWorld { }",
     "int x = 5 * y;",
-    "def multiply(a, b):  return a * b",
+    "def multiply(a, b):",
     ".box { width: 100vw; }",
     "console.log('Hello, world!');",
-
-    ".box { width: calc(100vw - 400px); }",
-    "console.log('Welcome to my website!');",
-    "using System; class Program { static void Main() {  Console.WriteLine(Hello, world!);    }}",
+    ".box { width: calc(100vw;",
+    "console.log('Welcome to my",
+    "using System; ",
+    "class Program",
     "return a + b;",
-    "public static void Main() { }",
+    "public static void Main()",
     "float f = Math.sin(3.14);",
     "print(add(2, 3));",
-    "using namespace std;int main() {    return 0;}",
-    "display: flex; width: calc(100vw - 400px);",
-    "document.getElementById('logo').style.color = 'red';",
+    "using namespace std;int main()",
+    "display: flex; width: calc(100vw;",
+    "document.getElementById('logo');",
     "int x = 5;",
     "int x = 10;",
-    "align-items: center; width: calc(100vw - 400px);",
-    "let name = prompt('What is your name?');alert('Hello, ' + name);",
+    "align-items: center;",
+    "width: calc(100vw;",
+    "let name = prompt('What",
 ];
+
 
 // A list of colors for different languages
 let colors = ["#e34c26", // HTML
@@ -118,58 +119,57 @@ function createSnippet() {
     // Return the snippet element
     return snippet;
 }
+
 // A function to animate a snippet element within the welcome screen section
 function animateSnippet(snippet) {
-  // Get the welcome screen section element and its dimensions
-  let welcomeScreen = document.querySelector('.welcome-screen');
-  let welcomeScreenWidth = welcomeScreen.offsetWidth;
-  let welcomeScreenHeight = welcomeScreen.offsetHeight;
+    // Get the welcome screen section element and its dimensions
+    let welcomeScreen = document.querySelector('.welcome-screen');
+    let welcomeScreenWidth = welcomeScreen.offsetWidth;
+    let welcomeScreenHeight = welcomeScreen.offsetHeight;
 
-  // Get the angle and radius of the snippet's position within the welcome screen section
-  let angle = Math.random() * Math.PI * 2; // Random angle between 0 and 2π
-  let radius = Math.min(welcomeScreenWidth, welcomeScreenHeight) / 2 - snippet.offsetWidth; // Random radius within the welcome screen section
+    // Get the angle and radius of the snippet's position within the welcome screen section
+    let angle = Math.random() * Math.PI * 2; // Random angle between 0 and 2π
+    let radius = Math.min(welcomeScreenWidth, welcomeScreenHeight) / 2 - snippet.offsetWidth; // Random radius within the welcome screen section
 
-  // Calculate the x and y coordinates of the snippet's position within the welcome screen section
-  let x = welcomeScreenWidth / 2 + radius * Math.cos(angle);
-  let y = welcomeScreenHeight / 2 + radius * Math.sin(angle);
+    // Calculate the x and y coordinates of the snippet's position within the welcome screen section
+    let x = welcomeScreenWidth / 2 + radius * Math.cos(angle);
+    let y = welcomeScreenHeight / 2 + radius * Math.sin(angle);
 
-  // Set the snippet's position within the welcome screen section
-  snippet.style.position = 'absolute';
-  snippet.style.left = x + 'px';
-  snippet.style.top = y + 'px';
+    // Set the snippet's position within the welcome screen section
+    snippet.style.position = 'absolute';
+    snippet.style.left = x + 'px';
+    snippet.style.top = y + 'px';
 
-  // Append the snippet to the welcome screen section element
-  welcomeScreen.appendChild(snippet);
+    // Append the snippet to the welcome screen section element
+    welcomeScreen.appendChild(snippet);
 
-  // Set a random duration for the animation between one and three seconds
-  let duration = Math.random() * 2000 + 1000;
+    // Set a random duration for the animation between one and three seconds
+    let duration = Math.random() * 2000 + 1000;
 
-  // Set a random direction for the animation (inward or outward)
-  let direction = Math.random() < 0.5 ? -1 : 1;
+    // Set a random direction for the animation (inward or outward)
+    let direction = Math.random() < 0.5 ? -1 : 1;
 
-  // Set the animation keyframes
-  let keyframes = [
-    { transform: 'scale(1)', opacity: 1, offset: 0 },
-    { transform: 'scale(2)', opacity: 0, offset: 1 },
-  ];
+    // Set the animation keyframes
+    let keyframes = [
+        {transform: 'scale(1)', opacity: 1, offset: 0},
+        {transform: 'scale(2)', opacity: 0, offset: 1},
+    ];
 
-  // Set the animation options
-  let options = {
-    duration: duration,
-    iterations: 1,
-    easing: 'ease-out',
-  };
+    // Set the animation options
+    let options = {
+        duration: duration,
+        iterations: 1,
+        easing: 'ease-out',
+    };
 
-  // Create the animation object
-  let animation = snippet.animate(keyframes, options);
+    // Create the animation object
+    let animation = snippet.animate(keyframes, options);
 
-  // When the animation ends, remove the snippet element
-  animation.onfinish = function () {
-    welcomeScreen.removeChild(snippet);
-  };
+    // When the animation ends, remove the snippet element
+    animation.onfinish = function () {
+        welcomeScreen.removeChild(snippet);
+    };
 }
-
-// Rest of the code...
 
 // A function to create and animate a new snippet every 100 milliseconds
 function generateSnippets() {
@@ -185,7 +185,6 @@ window.onload = generateSnippets;
 // Welcome Screen Animation END
 
 
-
 // Navigation Bar START
 function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -197,3 +196,56 @@ function myFunction() {
 }
 
 // Navigation Bar END
+
+// Comments & Reviews START
+
+  // Wait for the DOM to load
+  document.addEventListener("DOMContentLoaded", function() {
+    var reviews = document.querySelectorAll(".review-card"); // Select all review cards
+    var currentReview = 0; // Index of the currently displayed review
+
+    // Function to show a specific review
+    function showReview(index) {
+      // Hide all reviews
+      for (var i = 0; i < reviews.length; i++) {
+        reviews[i].style.display = "none";
+      }
+
+      // Show the review at the specified index
+      reviews[index].style.display = "grid";
+    }
+
+    // Function to show the next review
+    function showNextReview() {
+      currentReview++;
+      if (currentReview >= reviews.length) {
+        currentReview = 0; // Start from the beginning if the last review is reached
+      }
+      showReview(currentReview);
+    }
+
+    // Function to show the previous review
+    function showPreviousReview() {
+      currentReview--;
+      if (currentReview < 0) {
+        currentReview = reviews.length - 1; // Go to the last review if the first review is reached
+      }
+      showReview(currentReview);
+    }
+
+    // Show the initial review
+    showReview(currentReview);
+
+    // Set an interval to automatically show the next review every 5 seconds
+    setInterval(showNextReview, 5000);
+
+    // Add event listeners to the navigation buttons
+    var previousButton = document.querySelector(".chevron.left");
+    var nextButton = document.querySelector(".chevron.right");
+
+    previousButton.addEventListener("click", showPreviousReview);
+    nextButton.addEventListener("click", showNextReview);
+  });
+
+
+// Comments & Reviews END

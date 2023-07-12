@@ -15,18 +15,18 @@
 </head>
 <body>
 <article>
-   <div class="topnav" id="myTopnav">
-  <a href="index.html" class="active"><img src="../static/images/Kibocha%20-%20Logo.png" alt="Logo" width="243" height="35"></a>
-  <a href="profile.html">My Profile</a>
-  <a href="blogs.html">Blogs & Articles</a>
-  <a href="projects.html">Projects Portfolio</a>
-       <button class="button" id="contact-button" onclick="window.href.location='{% url 'contact-me' %}'">Contact Me
-       </button>
-       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
-
+    <nav class="navbar">
+        <div class="topnav" id="myTopnav">
+            <a href="{% url 'index' %}" id="logo">kibocha</a>
+            <a href="{% url 'profile' %}">My Profile</a>
+            <a href="{% url 'blogs' %}">Blogs</a>
+            <a href="{% url 'portfolio' %}">Portfolio</a>
+            <a href="{% url 'contact-me' %}">Contact Me</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </nav>
 </article>
 </body>
 </html>
