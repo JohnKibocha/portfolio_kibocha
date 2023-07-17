@@ -1,18 +1,18 @@
 /*Fonts START*/
 @font-face {
     font-family: 'brolink DEMO';
-    src: local('brolink DEMO'), url('fonts/BrolinkDEMO.otf') format('opentype');
+    src: local('brolink DEMO'), url('../fonts/BrolinkDEMO.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Cascadia Code';
-    src: local('Cascadia Code'), url('fonts/Cascadia.ttf') format('truetype');
+    src: local('Cascadia Code'), url('../fonts/Cascadia.ttf') format('truetype');
 
 }
 
 @font-face {
     font-family: 'Roboto Regular';
-    src: local('Roboto Regular'), url('fonts/Roboto-Regular.ttf') format('truetype');
+    src: local('Roboto Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
 
 /*Fonts END*/
@@ -499,6 +499,55 @@ form button {
 }
 
 /*Companies I have Worked With END*/
+
+/*Profile Card START*/
+.profile-card {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+    border-radius: 12px;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: large;
+}
+
+.profile-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-card h2 {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.profile-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.profile-card ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.profile-card ul li i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: darkslategrey;
+}
+
+/*Profile Card END*/
 
 
 /*footer START*/

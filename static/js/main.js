@@ -199,38 +199,38 @@ function myFunction() {
 
 // Comments & Reviews START
 
-  // Wait for the DOM to load
-  document.addEventListener("DOMContentLoaded", function() {
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function () {
     var reviews = document.querySelectorAll(".review-card"); // Select all review cards
     var currentReview = 0; // Index of the currently displayed review
 
     // Function to show a specific review
     function showReview(index) {
-      // Hide all reviews
-      for (var i = 0; i < reviews.length; i++) {
-        reviews[i].style.display = "none";
-      }
+        // Hide all reviews
+        for (var i = 0; i < reviews.length; i++) {
+            reviews[i].style.display = "none";
+        }
 
-      // Show the review at the specified index
-      reviews[index].style.display = "grid";
+        // Show the review at the specified index
+        reviews[index].style.display = "grid";
     }
 
     // Function to show the next review
     function showNextReview() {
-      currentReview++;
-      if (currentReview >= reviews.length) {
-        currentReview = 0; // Start from the beginning if the last review is reached
-      }
-      showReview(currentReview);
+        currentReview++;
+        if (currentReview >= reviews.length) {
+            currentReview = 0; // Start from the beginning if the last review is reached
+        }
+        showReview(currentReview);
     }
 
     // Function to show the previous review
     function showPreviousReview() {
-      currentReview--;
-      if (currentReview < 0) {
-        currentReview = reviews.length - 1; // Go to the last review if the first review is reached
-      }
-      showReview(currentReview);
+        currentReview--;
+        if (currentReview < 0) {
+            currentReview = reviews.length - 1; // Go to the last review if the first review is reached
+        }
+        showReview(currentReview);
     }
 
     // Show the initial review
@@ -245,7 +245,46 @@ function myFunction() {
 
     previousButton.addEventListener("click", showPreviousReview);
     nextButton.addEventListener("click", showNextReview);
-  });
-
-
+});
 // Comments & Reviews END
+
+// Milestones Table START
+// app.js
+
+document.addEventListener("DOMContentLoaded", function() {
+    const table = new mdc.dataTable.MDCDataTable(document.querySelector(".mdc-data-table"));
+
+    const paginationContainer = document.querySelector(".pagination");
+    const previousButton = document.getElementById("previous-page");
+    const nextButton = document.getElementById("next-page");
+
+    const pageSize = 5;
+    let currentPage = 0;
+    const totalRows = table.rowCount;
+
+    const updatePaginationButtons = () => {
+        previousButton.disabled = currentPage === 0;
+        nextButton.disabled = currentPage >= Math.ceil(totalRows / pageSize) - 1;
+    };
+
+    previousButton.addEventListener("click", () => {
+        if (currentPage > 0) {
+            currentPage--;
+            table.firstVisibleIndex = currentPage * pageSize;
+        }
+        updatePaginationButtons();
+    });
+
+    nextButton.addEventListener("click", () => {
+        if (currentPage < Math.ceil(totalRows / pageSize) - 1) {
+            currentPage++;
+            table.firstVisibleIndex = currentPage * pageSize;
+        }
+        updatePaginationButtons();
+    });
+
+    updatePaginationButtons();
+});
+
+// Milestones Table END
+

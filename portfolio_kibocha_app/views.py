@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
-from .models import Project, Review
+from django.shortcuts import redirect
+from django.shortcuts import render
 from .forms import ReviewForm
+from .models import Project, Review, Milestone
 
 
 # Create your views here.
@@ -12,7 +13,8 @@ def index_page(request):
 
 
 def profile_page(request):
-    return render(request, 'profile.html')
+    major_milestones = Milestone.objects.order_by('-date_range')[:5]
+    return render(request, "profile.html", {'milestones': major_milestones})
 
 
 def blogs_page(request):

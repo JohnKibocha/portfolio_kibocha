@@ -42,3 +42,13 @@ class Review(models.Model):
     company_position = models.CharField(max_length=100)
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Milestone(models.Model):
+    date_range = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    organization = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.description
+

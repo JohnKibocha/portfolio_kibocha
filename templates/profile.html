@@ -1,10 +1,71 @@
+{% load static %}
+{% load project_extras %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="description" content="Kibocha's Profile">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
+    <meta name="author" content="Kibocha John">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Kibocha's Profile</title>
 </head>
 <body>
-Hello Profile
+<header>
+    {% include 'header.html' %}
+</header>
+
+<main>
+    <article aria-label="profile">
+        <div class="profile-card">
+            <img src="../static/images/Jayden%20Smith.jpg" alt="Profile Image">
+            <h1>John Muturi Kibocha</h1>
+            <ul class="paragraph">
+                <li><i class="material-icons">person</i> Age: 23</li>
+                <li><i class="material-icons">location_on</i> Address: Nyeri, Kenya</li>
+                <li><i class="material-icons">code</i> Favorite Programming Languages: Python</li>
+                <li><i class="material-icons">info</i> Additional Information: I am a
+                    proficient developer driven by an enthusiasm for programming and a desire
+                    to acquire new skills.
+                </li>
+                <li><i class="material-icons">work</i> Occupation: Software Developer</li>
+                <li><i class="material-icons">star</i> Skills: Full-stack development, JavaScript, Django, HTML and CSS
+                </li>
+                <li><i class="material-icons">timeline</i> Experience: 2+ years in web development</li>
+            </ul>
+            <p>Feel free to reach out for collaborations or any other inquiries.</p>
+            <a href="{% url 'contact-me' %}" class="button">Contact Me</a>
+        </div>
+    </article>
+    <br><br>
+    <article aria-labelledby="about-me">
+        <div class="container" id="about-me">
+            <h1 class="heading" style="font-size: 24px">About Me</h1>
+            <p class="paragraph">I am a passionate software engineer who takes pride in designing and implementing
+                user-friendly and efficient software solutions. I enjoy creating software that enhances the experience
+                of my clients. I have over two years of experience in web development, working on various projects
+                ranging from personal websites to e-commerce platforms.
+            </p>
+
+        </div>
+    </article>
+    <br><br>
+    <article aria-label="milestones">
+
+    </article>
+</main>
+
+<footer>
+    {% include 'footer.html' %}
+</footer>
+<script src="../static/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </body>
 </html>
