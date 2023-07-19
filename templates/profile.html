@@ -46,10 +46,12 @@
     </article>
     <br><br>
     <article aria-labelledby="about-me">
+
         <div class="container" id="about-me">
             <h1 class="heading" style="font-size: 24px">About Me</h1>
             <p class="paragraph">I am a passionate software engineer who takes pride in designing and implementing
-                user-friendly and efficient software solutions. I enjoy creating software that enhances the experience
+                user-friendly and efficient software solutions. I enjoy creating software that enhances the
+                experience
                 of my clients. I have over two years of experience in web development, working on various projects
                 ranging from personal websites to e-commerce platforms.
             </p>
@@ -57,8 +59,36 @@
         </div>
     </article>
     <br><br>
-    <article aria-label="milestones">
+    <article aria-labelledby="milestones-card">
+        <div class="milestones-card">
 
+            <table id="milestones-table">
+                <thead>
+                <tr>
+                    <th>Duration</th>
+                    <th>Description</th>
+                    <th>Organization</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for milestone in milestones %}
+                    <tr>
+                        <td>{{ milestone.date_range }}</td>
+                        <td>{{ milestone.description }}</td>
+                        <td>{{ milestone.organization }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="milestones-pagination">
+                <button id="prev-btn">&lt; Prev</button>
+                <button id="next-btn">Next &gt;</button>
+            </div>
+
+        </div>
+        <br>
+        <a href="{% url 'contact-me' %}" class="button" style="align-items: center; justify-content: center">Request
+            Resume</a>
     </article>
 </main>
 

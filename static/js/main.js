@@ -249,42 +249,55 @@ document.addEventListener("DOMContentLoaded", function () {
 // Comments & Reviews END
 
 // Milestones Table START
-// app.js
+const table = document.getElementById('milestones-table');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const rowsPerPage = 6;
+let currentPage = 1;
 
-document.addEventListener("DOMContentLoaded", function() {
-    const table = new mdc.dataTable.MDCDataTable(document.querySelector(".mdc-data-table"));
+function showPage(pageNumber) {
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    const startIndex = (pageNumber - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
 
-    const paginationContainer = document.querySelector(".pagination");
-    const previousButton = document.getElementById("previous-page");
-    const nextButton = document.getElementById("next-page");
-
-    const pageSize = 5;
-    let currentPage = 0;
-    const totalRows = table.rowCount;
-
-    const updatePaginationButtons = () => {
-        previousButton.disabled = currentPage === 0;
-        nextButton.disabled = currentPage >= Math.ceil(totalRows / pageSize) - 1;
-    };
-
-    previousButton.addEventListener("click", () => {
-        if (currentPage > 0) {
-            currentPage--;
-            table.firstVisibleIndex = currentPage * pageSize;
+    for (let i = 0; i < rows.length; i++) {
+        if (i >= startIndex && i < endIndex) {
+            rows[i].style.display = '';
+        } else {
+            rows[i].style.display = 'none';
         }
-        updatePaginationButtons();
-    });
+    }
+}
 
-    nextButton.addEventListener("click", () => {
-        if (currentPage < Math.ceil(totalRows / pageSize) - 1) {
-            currentPage++;
-            table.firstVisibleIndex = currentPage * pageSize;
-        }
-        updatePaginationButtons();
-    });
+function updatePaginationButtons() {
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
 
-    updatePaginationButtons();
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+}
+
+prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+        updatePaginationButtons();
+    }
 });
+
+nextBtn.addEventListener('click', () => {
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+    if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+        updatePaginationButtons();
+    }
+});
+
+showPage(currentPage);
+updatePaginationButtons();
 
 // Milestones Table END
 
