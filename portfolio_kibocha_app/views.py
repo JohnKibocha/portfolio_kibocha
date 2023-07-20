@@ -1,7 +1,9 @@
+from django.http import HttpResponseBadRequest
 from django.shortcuts import redirect
 from django.shortcuts import render
 from .forms import ReviewForm
-from .models import Project, Review, Milestone
+from .models import Project, Review, Milestone, Skill
+from django.core.paginator import Paginator, EmptyPage
 
 
 # Create your views here.
@@ -13,8 +15,21 @@ def index_page(request):
 
 
 def profile_page(request):
-    major_milestones = Milestone.objects.order_by('-date_range')[:5]
-    return render(request, "profile.html", {'milestones': major_milestones})
+    milestones = Milestone.objects.all()
+    skills = Skill.objects.all()
+    # Number of items per page (in this case, 10)
+    items_per_page = 10
+
+    paginator = Paginator(milestones, items_per_page)
+    page_number = request.GET.get('page')
+
+    try:
+        page_number = int(page_number) if page_number else 1
+        milestones = paginator.page(page_number)
+    except (ValueError, EmptyPage):
+        return HttpResponseBadRequest("Invalid page number")
+
+    return render(request, "profile.html", {'milestones': milestones, 'skills': skills})
 
 
 def blogs_page(request):
@@ -43,3 +58,5 @@ def review_page(request):
 
 def thankyou_page(request):
     return render(request, 'thankyou.html')
+
+

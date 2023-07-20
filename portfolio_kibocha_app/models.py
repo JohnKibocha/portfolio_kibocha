@@ -23,9 +23,6 @@ PROJECT_STATUS_CHOICES = [
 # Define your project model
 class Project(models.Model):
     logo = models.ImageField(upload_to='project_logos/')
-    # Remove the status_icon field, as it is no longer needed
-    # status_icon = models.ImageField(upload_to='project_status_icons/')
-    # Define your project status field with the choices option
     status = models.CharField(max_length=10, choices=PROJECT_STATUS_CHOICES, default=DESIGNING)
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -36,7 +33,7 @@ class Project(models.Model):
 
 
 class Review(models.Model):
-    profile_photo = models.ImageField(blank=True, null=True, upload_to='review_images', default='default_user.png')
+    profile_photo = models.ImageField(blank=True, null=True, upload_to='review_images', default='review_images/default_user.png')
     name = models.CharField(max_length=100)
     company_name = models.CharField(max_length=100)
     company_position = models.CharField(max_length=100)
@@ -45,10 +42,21 @@ class Review(models.Model):
 
 
 class Milestone(models.Model):
-    date_range = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
     description = models.CharField(max_length=200)
     organization = models.CharField(max_length=100)
 
     def __str__(self):
         return self.description
 
+
+class Skill(models.Model):
+    # A skill has a name, a learning progress, a list of projects and a list of tools
+    name = models.CharField(max_length=100)
+    progress = models.IntegerField(default=0)  # A percentage of 100
+    projects = models.JSONField()  # A list of dictionaries with keys 'name' and 'url'
+    tools = models.JSONField()  # A list of strings
+
+    def __str__(self):
+        return self.name

@@ -249,55 +249,32 @@ document.addEventListener("DOMContentLoaded", function () {
 // Comments & Reviews END
 
 // Milestones Table START
-const table = document.getElementById('milestones-table');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const rowsPerPage = 6;
-let currentPage = 1;
+$(document).ready(function () {
+    // Prevent the default behavior of anchor tags when clicked inside #milestones-pagination
+    $("#milestones-pagination").on("click", "a", function (e) {
+        e.preventDefault();
+        var pageUrl = $(this).attr("href");
+        var pageNumber = pageUrl.split("=")[1]; // Extract the page number from the URL
+        pageNumber = parseInt(pageNumber); // Convert the page number to an integer
 
-function showPage(pageNumber) {
-    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-    const startIndex = (pageNumber - 1) * rowsPerPage;
-    const endIndex = startIndex + rowsPerPage;
+        // Fetch the paginated results using AJAX
+        $.ajax({
+            url: pageUrl,
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                // Update the table body with the new data
+                $("#milestones-tbody").html($(data).find("#milestones-tbody").html());
 
-    for (let i = 0; i < rows.length; i++) {
-        if (i >= startIndex && i < endIndex) {
-            rows[i].style.display = '';
-        } else {
-            rows[i].style.display = 'none';
-        }
-    }
-}
-
-function updatePaginationButtons() {
-    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-    const totalPages = Math.ceil(rows.length / rowsPerPage);
-
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-}
-
-prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-        updatePaginationButtons();
-    }
+                // Update the URL in the address bar using the HTML5 History API
+                history.pushState(null, null, pageUrl);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    });
 });
-
-nextBtn.addEventListener('click', () => {
-    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-    const totalPages = Math.ceil(rows.length / rowsPerPage);
-
-    if (currentPage < totalPages) {
-        currentPage++;
-        showPage(currentPage);
-        updatePaginationButtons();
-    }
-});
-
-showPage(currentPage);
-updatePaginationButtons();
 
 // Milestones Table END
 

@@ -136,9 +136,9 @@
 
 
     <br><br>
-
-    <article aria-labelledby="reviews">
+<article aria-labelledby="reviews">
         <h1 id="reviews" style="text-align: center">Comments & Reviews</h1>
+<div class="review-card-container">
         <div class="review-container">
             {% for review in reviews %}
                 <div class="review-card">
@@ -158,6 +158,9 @@
                 </button>
             </div>
         </div>
+</div>
+    <br>
+        <p style="justify-content: center; text-align: center" class="paragraph">Have something to say about me?  <a href="{% url 'review' %}" class="button">Comment</a></p>
     </article>
 
     <br><br>
