@@ -1,3 +1,9 @@
+
+
+
+
+
+
 // Search Bar START
 function search() {
     const input = document.getElementById("search-input");
@@ -8,7 +14,7 @@ function search() {
     input.value = ""; // Clear the input field after searching
 }
 
-const placeholderTexts = ["Projects...", "Blogs...", "Anything...", "Content...", "Documentation..."];
+const placeholderTexts = ["Projects...", "Anything...", "Content...", "Documentation...", "Milestones...",];
 
 function animatePlaceholder() {
     const input = document.getElementById("search-input");
@@ -21,6 +27,18 @@ function animatePlaceholder() {
 }
 
 animatePlaceholder();
+
+/*
+//Search Logic
+function submitSearch() {
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput.value;
+    if (query.trim() !== '') {
+        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+    }
+}
+*/
+
 
 // Search Bar END
 
@@ -237,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showReview(currentReview);
 
     // Set an interval to automatically show the next review every 5 seconds
-    setInterval(showNextReview, 5000);
+    setInterval(showNextReview, 10000);
 
     // Add event listeners to the navigation buttons
     var previousButton = document.querySelector(".chevron.left");
@@ -251,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Milestones Table START
 $(document).ready(function () {
     // Prevent the default behavior of anchor tags when clicked inside #milestones-pagination
-    $("#milestones-pagination").on("click", "a", function (e) {
+    $(document).on("click", "#milestones-pagination a", function (e) {
         e.preventDefault();
         var pageUrl = $(this).attr("href");
         var pageNumber = pageUrl.split("=")[1]; // Extract the page number from the URL
@@ -277,4 +295,30 @@ $(document).ready(function () {
 });
 
 // Milestones Table END
+
+
+// Portfolio Page START
+
+
+// All Projects START
+/*
+document.addEventListener("DOMContentLoaded", function () {
+  const allProjectCards = document.querySelectorAll(".all-project-cards");
+
+  allProjectCards.forEach((card) => {
+    const description = card.querySelector(".project-description").textContent;
+    fetchUnsplashBackground(card, description);
+  });
+
+  function fetchUnsplashBackground(card, query) {
+    // ... JavaScript code from the previous response ...
+  }
+});
+*/
+
+// All Projects END
+
+
+// Portfolio Page END
+
 

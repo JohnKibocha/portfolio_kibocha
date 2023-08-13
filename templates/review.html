@@ -14,12 +14,17 @@
 </head>
 <body>
 <article aria-labelledby="survey">
-    <h1>Review</h1>
-    <form method="POST" action="{% url 'review' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <h1 class="review-heading">Leave a Review</h1>
+    <div class="review-form-container">
+
+        <form method="POST" action="{% url 'review' %}" class="review-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div style="text-align: center; justify-content: center;">
+            <button type="submit" class="button" style="padding-right: 10%; padding-left: 10%;">Submit</button>
+            </div>
+        </form>
+    </div>
 </article>
 </body>
 </html>

@@ -28,7 +28,7 @@
             <img src="../static/images/Jayden%20Smith.jpg" alt="Profile Image">
             <h1>John Muturi Kibocha</h1>
             <ul class="paragraph">
-                <li><i class="material-icons">person</i> Age: 23</li>
+                <li><i class="material-icons">person</i> Age: 22</li>
                 <li><i class="material-icons">location_on</i> Address: Nyeri, Kenya</li>
                 <li><i class="material-icons">code</i> Favorite Programming Languages: Python</li>
                 <li><i class="material-icons">info</i> Additional Information: I am a
@@ -60,7 +60,6 @@
     </article>
     <br><br>
     <article aria-labelledby="milestones">
-
         <div class="milestones-card">
             <h2 class="heading" style="align-items: center; justify-content: center; font-size: 24px">MileStones</h2>
             <table id="milestones-table">
@@ -83,7 +82,8 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <div class="milestones-pagination">
+            <br> <br>
+            <div id="milestones-pagination">
                 {% if milestones.has_previous %}
                     <a href="?page=1" id="pagination-btn"><i class="material-icons">chevron_left</i></a>
                     <a href="?page={{ milestones.previous_page_number }}" id="pagination-btn"><i class="material-icons">chevron_right</i></a>
