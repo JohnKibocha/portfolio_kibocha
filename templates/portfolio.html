@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Kibocha's Project Portfolio</title>
 </head>
 <body>
@@ -39,7 +40,7 @@
                         <div class="recent-project-status-card" style="background-color: {{ status_info.color }};">
                             <div class="recent-project-status-icon"><img src="{{ status_info.icon }}"
                                                                          alt="Project Status" width="20px"
-                                                                         height="20px">
+                                                                         height="20px" style="visibility: hidden">
                             </div>
                             <div class="status-value">{{ recent_project.get_status_display }}</div>
                         </div>
@@ -54,93 +55,97 @@
     </article>
 
     <article aria-labelledby="all-projects" title="All Projects">
-        <div class="all-project-container">
-            <h2 class="heading" id="projects" style="font-size: 24px;">What I'm Working On</h2>
-            <div class="all-project-cards-container">
-                {% for all_project in all_projects %}
-                    <div class="all-project-card">
+    <div class="container-fluid all-project-container">
+        <h2 class="heading" id="projects">What I'm Working On</h2>
+        <div class="row all-project-cards-container">
+            {% for all_project in all_projects %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card all-project-card mb-4 m-md-0">
                         <div class="all-project-logo">
-                            <img src="{{ all_project.logo.url }}" alt="Project Logo">
+                            <img src="{{ all_project.logo.url }}" alt="Project Logo" class="card-img-top">
                         </div>
-                        <div class="all-project-name" style="font-size: large; font-weight: bold;">{{ all_project.name }} ({{ all_project.github_status }})</div>
-
-                        <div class="all-project-description">{{ all_project.description }}</div>
-
-                        <div class="all-project-status-and-cost">
-                            Status:
-                            <div class="all-project-status">
-                                <!-- Use the get_project_status_info template tag to get the icon URL and background color for the project status -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ all_project.name }} ({{ all_project.github_status |capfirst }})</h5>
+                            <p class="card-text all-project-description">{{ all_project.description }}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="all-project-status">
+                                Status:
                                 {% get_project_status_info all_project.status as status_info %}
                                 <div class="all-project-status-card" style="background-color: {{ status_info.color }};">
                                     <div class="all-project-status-icon">
                                         <img src="{{ status_info.icon }}" alt="Project Status" width="20px"
-                                             height="20px">
+                                             height="20px" style="visibility: hidden">
                                     </div>
                                     <div class="all-status-value">{{ all_project.get_status_display }}</div>
                                 </div>
                             </div>
-                            <div class="all-project-cost">
-                                <p class="heading">Cost: KES {{ all_project.cost|intcomma }}.00</p>
-                            </div>
-                        </div>
-
-                        <div class="all-project-developers-and-progress">
-                            <div class="all-project-developers">
-                                <p class="paragraph">Developers: {{ all_project.developers }}</p>
-                            </div>
-                            <div class="all-projects-progress">
-                                <div class="progress-container">
-                                    <div>Progress: {{ all_project.progress }}%
-                                        <div class="progress-bar" style="width: {{ all_project.progress }}%;"></div>
-                                    </div>
-
+                            </li>
+                            <li class="list-group-item">
+                                <div class="all-project-cost">
+                                    <p class="heading">Cost: KES {{ all_project.cost|intcomma }}.00</p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="all-project-website-and-source-code">
+                            </li>
+                            <li class="list-group-item">
+                                <div class="all-project-developers">
+                                    <p class="paragraph">Developers: {{ all_project.developers }}</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="all-project-progress">
+                                    Progress:
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                            role="progressbar" aria-valuenow="{{ all_project.progress }}" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: {{ all_project.progress }}%;">
+                                            {{ all_project.progress }}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="card-body all-project-website-and-source-code">
                             <div class="all-project-website">
                                 {% if all_project.website %}
-                                    <a href="{{ all_project.website }}" class="button">
-                                        <img src="../static/icons/website%20icon.svg" alt="website icon" width="20px"
-                                             height="20px"> View Website
+                                    <a href="{{ all_project.website }}" class="btn btn-primary ">
+                                        View Website
                                     </a>
                                 {% else %}
-                                    <button class="all-project-disabled-button" disabled>
-                                        <img src="../static/icons/website%20icon.svg" alt="website icon" width="20px"
-                                             height="20px"> View Website
+                                    <button class="btn btn-secondary" disabled>
+                                        View Website
                                     </button>
                                 {% endif %}
                             </div>
                             <div class="all-project-source-code">
                                 {% if all_project.github_status == 'public' %}
-                                    <div class="all-project-source-code">
-                                        <a href="{{ all_project.source_code }}" class="button">
-                                            <img src="../static/icons/github%20icon.svg" alt="github icon" width="20px" height="20px"> View Source Code
-                                        </a>
-                                    </div>
+                                    <a href="{{ all_project.source_code }}" class="btn btn-primary">
+                                        View Source Code
+                                    </a>
                                 {% elif all_project.github_status == 'private' %}
                                     <div class="contact-developer-button">
-                                        <a href="{% url 'contact-me'%}" class="button">
-                                            Contact Developer
+                                        <a href="{% url 'contact-me' %}" class="btn btn-primary">
+                                            Request Source Code
                                         </a>
                                     </div>
                                 {% endif %}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
-            <div class="container" id="contact-me">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row" id="contact-me">
+            <div class="col-md-12">
                 <h1 class="heading">Want to Work With Me?</h1>
                 <p class="paragraph">Thinking of making a website for your business? Wondering how to automate your
-                    company?
-                    Do not worry. Just click the button below and your wish becomes my command.
-                </p>
+                    company? Do not worry. Just click the button below and your wish becomes my command.</p>
                 <a href="{% url 'contact-me' %}" class="button">Contact Me</a>
             </div>
         </div>
-    </article>
+    </div>
+</article>
+
 
 
 </main>

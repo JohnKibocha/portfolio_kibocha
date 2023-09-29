@@ -1,12 +1,11 @@
+from django.conf import settings
+from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage
 from django.http import HttpResponseBadRequest
 from django.shortcuts import redirect
 from django.shortcuts import render
 from .forms import ReviewForm
-from .models import Project, Review, Milestone, Skill, Contact
-from django.core.mail import send_mail
-from django.conf import settings
-from django.db.models import Q
+from .models import Project, Review, Milestone, Skill, Contact, Profile
 
 
 # Create your views here.
@@ -16,43 +15,23 @@ def index_page(request):
     context = {'projects': recent_projects, 'reviews': user_review}
     return render(request, 'index.html', context)
 
-#
-# def search(request):
-#     query = request.GET.get('q')  # Get the search query from the request
-#
-#     # Perform the search using Q objects
-#     project_results = Project.objects.filter(
-#         Q(name__icontains=query) | Q(description__icontains=query)
-#     )
-#
-#     skill_results = Skill.objects.filter(
-#         Q(name__icontains=query) | Q(tools__icontains=query)
-#     )
-#
-#     context = {
-#         'query': query,
-#         'project_results': project_results,
-#         'skill_results': skill_results,
-#     }
-#     return render(request, 'search_results.html', context)
+
+def search_results(request):
+    query = request.GET.get('q')
+    results = []
+
+    if query:
+        results = Project.objects.filter(name__icontains=query)
+
+    context = {'results': results, 'query': query}
+    return render(request, 'search_results.html', context)
 
 
 def profile_page(request):
     milestones = Milestone.objects.all()
     skills = Skill.objects.all()
-    # Number of items per page (in this case, 10)
-    items_per_page = 10
-
-    paginator = Paginator(milestones, items_per_page)
-    page_number = request.GET.get('page')
-
-    try:
-        page_number = int(page_number) if page_number else 1
-        milestones = paginator.page(page_number)
-    except (ValueError, EmptyPage):
-        return HttpResponseBadRequest("Invalid page number")
-
-    return render(request, "profile.html", {'milestones': milestones, 'skills': skills})
+    profiles = Profile.objects.all()
+    return render(request, "profile.html", {'milestones': milestones, 'skills': skills, 'profile': profiles})
 
 
 def blogs_page(request):
@@ -67,6 +46,7 @@ def portfolio_page(request):
 
 
 def review_page(request):
+    reviews = Review.objects.all()
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -75,7 +55,7 @@ def review_page(request):
     else:
         form = ReviewForm()
 
-    return render(request, 'review.html', {'form': form})
+    return render(request, 'review.html', {'form': form, 'reviews': reviews})
 
 
 def contact_me_page(request):
@@ -104,15 +84,15 @@ def contact_me_page(request):
         contact.save()
 
         send_mail(
-            f"New Contact: {subject}",  # Subject of the email
+            f"{subject}",
             f"Name: {first_name} {last_name}\nEmail: {email}\nPhone: {phone_number}\nMessage: {message}",
             # Email content
-            settings.DEFAULT_FROM_EMAIL,  # Sender's email address
-            ['johnkibocha@outlook.com'],  # Recipient's email address
+            settings.DEFAULT_FROM_EMAIL,
+            ['johnkibocha@outlook.com'],
             fail_silently=False,
         )
 
-        return redirect('success')  # Redirect to a success page
+        return redirect('success')
 
     return render(request, 'contact-me.html')
 

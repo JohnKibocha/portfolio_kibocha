@@ -7,7 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Kibocha's Portfolio">
-    <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
+    <meta name="keywords"
+          content="kibocha's portfolio, john kibocha, john muturi kibocha, projects, portfolio, website, milestones, javascript, html, css, django, python">
     <meta name="author" content="Kibocha John">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
@@ -23,7 +24,7 @@
 </header>
 
 <main>
-    {% comment %}<article aria-label="search">
+    <article aria-label="search">
         <div class="search-bar">
             <label for="search-input"></label>
             <input type="text" id="search-input" placeholder="Search Anything"/>
@@ -31,7 +32,7 @@
                 <i class="material-icons">search</i>
             </button>
         </div>
-    </article>{% endcomment %}
+    </article>
     <br><br>
     <article aria-labelledby="welcome-screen">
         <section class="welcome-screen">
@@ -43,24 +44,25 @@
     <br><br>
     <article aria-labelledby="about-me">
         <div class="container" id="about-me">
-            <h1 class="heading" style="font-size: 24px">Hi, I'm John Kibocha</h1>
-            <p class="paragraph">I am a Software Engineer specializing in Software Development, Web Development and
-                System Development. I love creating automated software systems that ease the user’s work.
-                I am currently taking my degree in Business Information Technology at Dedan Kimathi University of
-                Technology. </p>
+            <h1 class="heading" style="font-size: 1.5rem">Hi, I'm John Kibocha</h1>
+            <p class="paragraph">I am a Software Engineer specializing in Software Development, Web Development, and
+                System Development. I love creating automated software systems that ease the user’s work. I am currently
+                pursuing a degree in Business Information Technology at Dedan Kimathi University of Technology.</p>
+            <br>
             <a href="{% url 'profile' %}" class="button">Go to Profile</a>
         </div>
     </article>
+
     <br><br>
     <article aria-labelledby="skills-and-experience">
         <div class="skills-card">
             <h2 id="skills-and-experience" style="text-align: center; justify-content: center">Skills & Experience</h2>
-            <div class="table">
+            <div class="index-skills-table">
                 <div class="column">
-                    <div><img class="skills-icon" src="../static/icons/cssIcon.svg" alt="Css Icon" height="181"
-                              width="242"></div>
+                    <div><img class="skills-icon" src="../static/icons/code.svg" alt="Css Icon" height="50" width="67">
+                    </div>
                     <div class="heading">Web Development</div>
-                    <div class="description">I create websites that are clean, simple and that <br>do what they claim to
+                    <div class="description">I create websites that are clean, simple, and that do what they claim to
                         do!
                     </div>
                     <br><br>
@@ -73,11 +75,10 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div><img class="skills-icon" src="../static/icons/Software-dev.png" alt="software dev Icon"
-                              height="181" width="242"></div>
+                    <div><img class="skills-icon" src="../static/icons/software-dev.svg" alt="software dev Icon"
+                              height="50" width="67"></div>
                     <div class="heading">Software Development</div>
-                    <div class="description">I find designing and implementing software systems from scratch
-                        refreshing.
+                    <div class="description">I find designing and implementing software systems from scratch refreshing.
                     </div>
                     <br><br>
                     <div class="heading">What I can Do</div>
@@ -89,23 +90,25 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div><img class="skills-icon" src="../static/icons/system-dev.png" alt="system dev Icon"
-                              height="181" width="242"></div>
+                    <div><img class="skills-icon" src="../static/icons/system-dev.svg" alt="system dev Icon" height="50"
+                              width="67"></div>
                     <div class="heading">System Development</div>
                     <div class="description">I consider every software I make a system. A living thing that solves
-                        problems and can communicate with other software systems.
+                        problems
+                        and can communicate with other software systems.
                     </div>
                     <br><br>
                     <div class="heading">What I Know</div>
                     <div class="description">
                         <p>Linux Server Administration</p>
                         <p>System Analysis & Design</p>
-                        <p></p>DevOPs
+                        <p>DevOPs</p>
                     </div>
                 </div>
             </div>
         </div>
     </article>
+
     <br><br>
     <article aria-labelledby="projects" title="Portfolio Projects">
         <div class="project-container">
@@ -129,9 +132,9 @@
                 {% endfor %}
             </div>
             <div class="view-portfolio">
-                <p class="paragraph">Want to See More? <a href="{% url 'portfolio' %}" class="button">View Portfolio</a>
-                </p>
-
+                <p class="paragraph">Want to See More?</p>
+                <br>
+                <a href="{% url 'portfolio' %}" class="button">View Portfolio</a>
             </div>
         </div>
     </article>
@@ -141,32 +144,37 @@
     <article aria-labelledby="reviews">
         <h1 id="reviews" style="text-align: center">Comments & Reviews</h1>
         <div class="review-card-container">
-            <div class="review-container">
-                {% for review in reviews %}
-                    <div class="review-card">
-                        <figure>
-                            <img src="{{ review.profile_photo.url }}" alt="{{ review.name }}'s profile photo">
-                            <figcaption>
-                                <p class="comment">{{ review.comment }}</p>
-                                <p class="reviewer">{{ review.name }}, {{ review.company_position }} {{ review.company_name }}</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                {% endfor %}
-                <div class="navigation">
-                    <button class="chevron left" aria-label="Previous review"><i class="material-icons">chevron_left</i>
-                    </button>
-                    <button class="chevron right" aria-label="Next review"><i class="material-icons">chevron_right</i>
-                    </button>
+            {% for review in reviews %}
+                <div class="review-card">
+                    <figure>
+                        <img src="{{ review.profile_photo.url }}" alt="{{ review.name }}'s profile photo">
+                        <figcaption>
+                            <p class="comment">{{ review.comment }}</p>
+                            <p class="reviewer">{{ review.name }}. {{ review.what_do_you_do }}. {{ review.where_do_you_work }}</p>
+                        </figcaption>
+                    </figure>
                 </div>
-            </div>
+            {% endfor %}
+        </div>
+        <br><br>
+        <div class="navigation">
+            <button class="chevron left" aria-label="Previous review"><i class="material-icons">chevron_left</i>
+            </button>
+            <button class="chevron right" aria-label="Next review"><i class="material-icons">chevron_right</i>
+            </button>
         </div>
         <br>
-        <p style="justify-content: center; text-align: center" class="paragraph">Have something to say about me? <a
-                href="{% url 'review' %}" class="button">Comment</a></p>
+        <div class="write-comment">
+            <p style="text-align: center" class="paragraph">Have something to say about me?</p>
+            <br>
+            <a href="{% url 'review' %}" class="button"
+               style="align-content: center; justify-content: center">Comment</a>
+        </div>
     </article>
 
-    <br><br>
+
+    {% comment %}
+
     <article aria-labelledby="collaboration">
         <h2 class="heading" id="collaboration" style="font-size: 24px; text-align: center">Companies I have Worked
             With</h2>
@@ -180,6 +188,8 @@
             <img src="../static/icons/kenya%20power%201.svg" alt="Kenya Power Logo">
         </section>
     </article>
+{% endcomment %}
+
 
     <br><br>
 
@@ -189,6 +199,7 @@
             <p class="paragraph">I am available to chat on software engineering or any other topics. If you wish to talk
                 to me about anything - and I mean anything - don’t be shy, Just click the button below and get the
                 conversation going... </p>
+            <br>
             <a href="{% url 'contact-me' %}" class="button">Contact Me</a>
         </div>
     </article>

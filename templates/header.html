@@ -6,7 +6,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
     <meta name="author" content="Kibocha John">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../static/icons/favicon.svg">
+     <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
@@ -17,7 +17,9 @@
 <article>
     <nav class="navbar">
         <div class="topnav" id="myTopnav">
-            <a href="{% url 'index' %}" id="logo">kibocha</a>
+            <a href="{% url 'index' %}" id="logo" >
+                <img src="../static/fonts/kibocha-navigationbar-logo.png" alt="kibocha" height="17" width="121">
+            </a>
             <a href="{% url 'profile' %}">My Profile</a>
             <a href="{% url 'portfolio' %}">Portfolio</a>
 {#            <a href="{% url 'blogs' %}">Blogs</a>#}

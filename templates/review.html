@@ -6,6 +6,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
     <meta name="author" content="Kibocha John">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
@@ -13,11 +14,16 @@
     <title>User Reviews</title>
 </head>
 <body>
-<article aria-labelledby="survey">
-    <h1 class="review-heading">Leave a Review</h1>
-    <div class="review-form-container">
+    <header>
+        {%include 'header.html'%}
+    </header>
 
+    <br><br><br><br>
+
+<article aria-labelledby="survey">
+    <div class="review-form-container">
         <form method="POST" action="{% url 'review' %}" class="review-form">
+            <h1 class="review-heading" style="text-align: center; margin: 5%">Make a Comment</h1>
             {% csrf_token %}
             {{ form.as_p }}
             <div style="text-align: center; justify-content: center;">
@@ -26,5 +32,11 @@
         </form>
     </div>
 </article>
+
+    <br><br><br>
+
+<footer>
+    {%include 'footer.html'%}
+</footer>
 </body>
 </html>

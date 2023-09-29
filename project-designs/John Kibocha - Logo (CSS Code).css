@@ -1,0 +1,348 @@
+@charset "utf-8";
+	.NormalCharacterStyle
+{
+	font-family : Brolink;
+	font-size : 101px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+}
+.NormalCharacterStyle2
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle1
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #ED1C24;
+	text-outline : rgb(237, 28, 36);
+}
+.NormalCharacterStyle10
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle7
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle8
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #BE1E2D;
+	text-outline : rgb(190, 30, 45);
+}
+.NormalCharacterStyle11
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle3
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle5
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #BE1E2D;
+	text-outline : rgb(190, 30, 45);
+}
+.NormalCharacterStyle9
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle16
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle6
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle12
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle14
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #EC008C;
+	text-outline : rgb(236, 0, 140);
+}
+.NormalCharacterStyle17
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle15
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle4
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle13
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #BE1E2D;
+	text-outline : rgb(190, 30, 45);
+}
+.NormalCharacterStyle22
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle21
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #262262;
+	text-outline : rgb(38, 34, 98);
+}
+.NormalCharacterStyle27
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #ED1C24;
+	text-outline : rgb(237, 28, 36);
+}
+.NormalCharacterStyle18
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	text-outline : #BE1E2D;
+	text-outline : rgb(190, 30, 45);
+}
+.NormalCharacterStyle19
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle25
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #2E3192;
+	color : rgb(46, 49, 146);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle26
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #ED1C24;
+	text-outline : rgb(237, 28, 36);
+}
+.NormalCharacterStyle23
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle24
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle20
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle30
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #DA1C5C;
+	text-outline : rgb(218, 28, 92);
+}
+.NormalCharacterStyle29
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle31
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #EE2A7B;
+	text-outline : rgb(238, 42, 123);
+}
+.NormalCharacterStyle32
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #EE2A7B;
+	text-outline : rgb(238, 42, 123);
+}
+.NormalCharacterStyle33
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #DA1C5C;
+	text-outline : rgb(218, 28, 92);
+}
+.NormalCharacterStyle28
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #BE1E2D;
+	text-outline : rgb(190, 30, 45);
+}
+.NormalCharacterStyle34
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle35
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #00A651;
+	text-outline : rgb(0, 166, 81);
+}
+.NormalCharacterStyle36
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #92278F;
+	text-outline : rgb(146, 39, 143);
+}
+.NormalCharacterStyle38
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #2E3192;
+	color : rgb(46, 49, 146);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}
+.NormalCharacterStyle37
+{
+	font-family : Cascadia Code;
+	font-size : 12px;
+	color : #231F20;
+	color : rgb(35, 31, 32);
+	text-outline : #2E3192;
+	text-outline : rgb(46, 49, 146);
+}

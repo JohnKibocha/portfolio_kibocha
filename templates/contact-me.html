@@ -6,10 +6,12 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
     <meta name="author" content="Kibocha John">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Contact Me</title>
 </head>
 <body>
@@ -20,51 +22,53 @@
 <main>
     <article aria-labelledby="contact-me">
         <div class="contact-container">
-            <h1>Contact Me</h1>
+            <div class="container">
+                <h1>Contact Me</h1>
+            </div>
             <p class="contact-paragraph">Great! Let's talk. Fill this form, and I will get back to you in a flash. ⚡</p>
 
-            <form method="post">
+            <form method="post" class="container contact-form">
                 {% csrf_token %}
-
                 <div class="row">
-                    <div class="input-field col-md-6">
-                        <input type="text" id="first_name" name="first_name" required>
+                    <div class="input-field col-12 col-md-6">
                         <label for="first_name">First Name *</label>
+                        <input type="text" id="first_name" name="first_name" required>
                     </div>
-                    <div class="input-field col-md-6">
-                        <input type="text" id="last_name" name="last_name" required>
+                    <div class="input-field col-12 col-md-6">
                         <label for="last_name">Last Name *</label>
+                        <input type="text" id="last_name" name="last_name" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col-md-6">
-                        <input type="text" id="company_name" name="company_name">
+                    <div class="input-field col-12 col-md-6">
                         <label for="company_name">Company Name</label>
+                        <input type="text" id="company_name" name="company_name">
                     </div>
-                    <div class="input-field col-md-6">
-                        <input type="text" id="company_address" name="company_address">
+                    <div class="input-field col-12 col-md-6">
                         <label for="company_address">Company Address</label>
+                        <input type="text" id="company_address" name="company_address">
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col-md-6">
-                        <input type="text" id="company_position" name="company_position">
+                    <div class="input-field col-12 col-md-6">
                         <label for="company_position">Company Position</label>
+                        <input type="text" id="company_position" name="company_position">
                     </div>
-                    <div class="input-field col-md-6">
-                        <input type="email" id="email" name="email" required>
+                    <div class="input-field col-12 col-md-6">
                         <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col-md-6">
-                        <input type="tel" id="phone_number" name="phone_number">
+                    <div class="input-field col-12 col-md-6">
                         <label for="phone_number">Phone Number</label>
+                        <input type="tel" id="phone_number" name="phone_number">
                     </div>
-                    <div class="input-field col-md-6">
+                    <div class="input-field col-12 col-md-6">
+                        <label for="subject">Subject *</label>
                         <select id="subject" name="subject" required>
                             <option value="" disabled selected>Select a subject</option>
                             <option value="Request Source Code">Request Source Code</option>
@@ -72,24 +76,23 @@
                             <option value="Request Resume">Request Resume</option>
                             <option value="Collaborate">Collaborate</option>
                         </select>
-                        <label for="subject">Subject *</label>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col-md-12">
-                        <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                    <div class="input-field col-12">
                         <label for="message">Enter Message Here</label>
+                        <textarea id="message" name="message" class="materialize-textarea"></textarea>
                     </div>
                 </div>
-                <div class="submit-button">
-                    <button class="button" type="submit" style="padding-left: 5%; padding-right: 5%;">Submit</button>
-                </div>
-
+                <br>
+                    <div class="submit-button">
+                        <a class="button" type="submit">Submit</a>
+                    </div>
             </form>
         </div>
-
     </article>
+
 </main>
 
 <footer>

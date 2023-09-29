@@ -26,19 +26,146 @@ html, body {
 
 }
 
+.heading {
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
 body {
-    
+
     margin: 0;
     font-family: "Roboto Regular", Arial, Helvetica, sans-serif;
 }
 
+body {
+    font-size: 16px; /* This is the root element's font size */
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+hr {
+    color: #000000;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 100px;
+    background-color: #1c4966; /* Changed the color to a material blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: all 0.3s ease; /*Added a transition for all properties */
+    text-align: center;
+    justify-content: center;
+    font-size: medium;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added a box shadow to create a floating effect */
+    @media screen and (max-width: 768px) {
+        width: 80%;
+        padding: 10px;
+    }
+}
+
+.button:hover {
+    background-color: #1976D2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
+.button:active {
+    background-color: #03002e; /* Changed the color to a darker blue on click / box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); / Added an inset box shadow on click to make it look like it is pressed / transform: translateY(2px); / Moved the button slightly down on click */
+}
+
+.btn-primary {
+    margin-bottom: 10px;
+    padding: 10px 105px;
+    border-radius: 40px;
+    background-color: #1c4966; /* Changed the color to a material blue */
+    color: #fff;
+    text-decoration: none;
+
+    @media screen and (max-width: 768px) {
+        padding: 10px 20px;
+
+    }
+}
+
+.btn-secondary {
+    margin-bottom: 10px;
+    padding: 10px 125px;
+    border-radius: 40px;
+    cursor: not-allowed;
+
+    @media screen and (max-width: 768px) {
+        padding: 10px 70px;
+
+    }
+}
+
+.card {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+/*Table Style START*/
+
+.table-responsive {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+table {
+    width: 100%;
+    align-self: center;
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    /*background colour to be light material blue*/
+    background-color: #1c4966;
+}
+
+
+/* add media query to change margin value based on screen width */
+@media (max-width: 768px) {
+    .table-responsive-sm {
+        margin: 5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .table-responsive-sm {
+
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+/* add media query to change progress bar height based on screen width */
+@media (max-width: 576px) {
+    .progress {
+        height: 15px;
+    }
+}
+
+/*Table Style END*/
+
+
 /*Global Styles END*/
 
-/*Navigation Bar START*/
 
-body {
-    margin: 0;
-}
+/* Navigation Bar START */
 
 .topnav {
     font-family: "Roboto Regular", sans-serif;
@@ -46,7 +173,6 @@ body {
     padding: 0.5% 5%;
     overflow: hidden;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .topnav a {
@@ -59,6 +185,12 @@ body {
     font-size: 17px;
 }
 
+/* Increase the size of the navigation bar */
+
+.topnav {
+    transform: scale(1.05); /* Increase size by 5% */
+}
+
 .topnav #logo {
     padding-left: 25px;
     padding-right: 25px;
@@ -67,11 +199,10 @@ body {
     text-align: center;
 }
 
-
 .topnav a:hover {
     background-color: #f4f4f4;
     color: black;
-    border-radius: 40px;
+    border-radius: 2.5rem;
 }
 
 .topnav .icon {
@@ -107,52 +238,83 @@ body {
     }
 }
 
-/*Navigation Bar END*/
+/* Navigation Bar END */
 
 
 /* Search Bar START */
+
 .search-bar {
     display: flex;
     align-items: center;
     max-width: 500px;
     width: 90%;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);;
     border-radius: 40px;
     padding: 6px;
-    height: 06vh;
+    height: 6vh;
     margin: 20px auto;
+    position: relative;
+    border: #000 solid 1px;
+    @media screen and (max-width: 768px) {
+        height: 30px;
+
+    }
 }
 
 #search-input {
     flex: 1;
     border: none;
     background-color: transparent;
-    font-size: 18px;
+    font-size: 16px;
     outline: none;
     font-family: "Cascadia Code", sans-serif;
     color: black;
     font-weight: normal;
     padding-left: 1rem;
     caret-color: black;
+    padding-right: 40px;
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
 }
 
 #search-button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    position: absolute;
+    right: 30px; /* Adjust this value as needed */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .material-icons {
     font-size: 26px;
-    padding-right: 20px;
+    /* Center the search icon vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 37.5rem) {
+    .search-bar {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    .search-input {
+        font-size: 12px;
+    }
 }
 
 /* Search Bar END */
 
+/* Welcome Screen START */
 
-/*Welcome Screen START*/
 .welcome-screen {
     position: relative;
+    max-width: 100vw; /* Constrain animation to the width of the device */
+    overflow: hidden; /* Hide overflow content */
+    margin: 5px; /* Add a margin of 5px to the container */
 }
 
 .welcome-image {
@@ -170,70 +332,57 @@ body {
 
 .snippet {
     position: absolute;
-    font-size: 12px;
+    font-size: 1rem; /* Adjust font size as needed for better screen fit */
     font-family: 'Cascadia Code', monospace;
+    white-space: nowrap; /* Prevent line breaks in snippets */
 }
 
-/*Welcome Screen END*/
+/* Welcome Screen END */
 
 
-/*About Me START*/
+/* About Me START */
 
 .container {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5px; /* Reduce left padding to 5px */
+    padding-right: 5px; /* Reduce right padding to 5px */
     text-align: center;
 }
 
 .heading {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-h1 {
-    text-align: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
 }
 
 .paragraph {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #375363;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 40px;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    justify-content: center;
-}
 
-.button:hover {
-    background-color: #1976D2;
-}
+/* About Me END */
 
-/*About Me END*/
+/* Skills & Experience START */
 
-/*Skills & Experience START*/
 .skills-card {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    max-width: 80%;
-    padding: 16px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 1rem;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    border: #ccc solid 1px;
+    border-radius: 0.438rem;
     text-align: center;
-    margin: 0 auto;
+    @media screen and (max-width: 768px) {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
 }
 
-.table {
+.index-skills-table {
     display: flex;
     justify-content: center;
-
 }
 
 .column {
@@ -247,14 +396,9 @@ h1 {
     border-right: none;
 }
 
-.heading {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
 
 .description {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .description-list {
@@ -262,7 +406,7 @@ h1 {
 }
 
 @media screen and (max-width: 600px) {
-    .table {
+    .index-skills-table {
         flex-direction: column; /* Changed flex direction to column */
         align-items: stretch; /* Added align items to stretch */
     }
@@ -280,7 +424,9 @@ h1 {
 
 /*Skills & Experience END*/
 
+
 /*What I'm Working On START*/
+
 .project-container {
     text-align: center;
     padding: 20px;
@@ -297,7 +443,7 @@ h1 {
     width: 300px;
     padding: 20px;
     margin: 10px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    border: #ccc solid 1px;
     border-radius: 10px;
 }
 
@@ -344,7 +490,7 @@ h1 {
 }
 
 .view-portfolio {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .view-button {
@@ -358,97 +504,59 @@ h1 {
 
 @media (max-width: 768px) {
     .project-card {
-        width: 90%;
+        width: 95%;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 }
 
 /*What I'm Working On END*/
 
-/*Comments & Reviews START*/
-.review-container {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+/* Comments & Reviews START */
+
+.review-card-container {
     display: flex;
-    flex-wrap: wrap; /* Allows the review-cards to wrap if there is not enough space */
-    /* Center the content inside the container */
-}
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+    @media screen and (max-width: 768px) {
+        margin-left: 15px;
+        margin-right: 15px;
 
-@media screen and (max-width: 600px) {
-    .review-container {
-        height: 100%;
-        flex-direction: column;
-    }
-
-    .chevron {
-        text-align: center;
-        justify-content: center;
     }
 }
 
 .review-card {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
-    padding: 16px;
+    padding: 5px; /* Adjust padding here for smaller screens */
     text-align: center;
-    margin: 0 auto;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    grid-gap: 10px;
-
-
-}
-
-.review-card-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 80%;
-    padding: 16px;
-    text-align: center;
-    margin: 0 auto;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    grid-gap: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; /* Replace box shadow with border */
     border-radius: 5px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     background-color: #fff;
 }
 
 .review-card img {
-
     width: 100px;
     height: 100px;
-    margin: 0;
     border-radius: 50%;
-    text-align: center;
-
 }
 
 .comment {
     font-size: 1em;
     text-align: center;
-
+    padding: 2px; /* Adjust padding for smaller screens */
 }
-
 
 .reviewer {
     font-size: 1.1em;
     text-align: center;
-
+    padding: 2px; /* Adjust padding for smaller screens */
 }
 
 .navigation {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
+    justify-content: center;
 }
 
 .chevron {
@@ -484,9 +592,16 @@ h1 {
     margin-top: 16px;
 }
 
-/*Comments & Reviews END*/
+.write-comment {
+    text-align: center;
+    align-content: center;
+}
+
+/* Comments & Reviews END */
+
 
 /*Companies I have Worked With START*/
+
 .collaboration-image {
     margin-left: 5%;
     margin-right: 5%;
@@ -508,6 +623,8 @@ h1 {
 /*Companies I have Worked With END*/
 
 /*Profile Card START*/
+
+/* Profile Card START */
 .profile-card {
     margin: 5%;
     display: flex;
@@ -516,7 +633,7 @@ h1 {
     padding: 40px 30px;
     border-radius: 12px;
     background-color: #FFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border: #ccc solid 1px;
     font-family: 'Roboto Regular', sans-serif;
     font-size: large;
 }
@@ -528,7 +645,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.profile-card h2 {
+.profile-card h1 {
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -545,175 +662,70 @@ h1 {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    font-size: 16px;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: large;
+    padding-bottom: 1%;
+    @media screen and (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 10px;
+        font-size: medium;
+    }
 }
 
 .profile-card ul li i {
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 35px;
     color: darkslategrey;
 }
 
-/*Profile Card END*/
-
-/*Milestones START*/
-.milestones-card {
-    margin: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 30px;
-    border-radius: 12px;
-    background-color: #FFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    font-family: 'Roboto Regular', sans-serif;
-    font-size: large;
+#profile-card-heading{
+   font-size: 100px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-thead th {
-    background-color: #f5f5f5;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.milestones-pagination {
-    margin-top: 20px;
-    text-align: center;
-
-}
-
-#pagination-btn {
-    padding: 12px 20px; /* Increased padding for larger buttons */
-    font-size: 14px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 4px;
-    font-weight: bolder;
-    text-decoration: none;
-    cursor: pointer;
-    margin: 5px; /* Add some margin between the buttons */
-}
-
-
-.milestones-pagination button:disabled {
-    background-color: #9e9e9e;
-    cursor: not-allowed; /* Change cursor for disabled buttons */
-}
-
-/*Milestones END*/
-
-/*Skills & Experience - Profile Page START*/
-.skills-card {
-    /*margin: 5%;*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 30px;
-    border-radius: 12px;
-    background-color: #FFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    font-family: 'Roboto Regular', sans-serif;
+.profile-card-paragraph {
+    padding-left: 2%;
+    padding-right: 2%;
     font-size: medium;
-}
+    padding-bottom: 5%;
 
-.table-container {
-    overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
-}
-
-/* Make the table responsive */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-thead th {
-    background-color: #f5f5f5;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Style the progress bar */
-.progress-bar {
-    height: 5px;
-    background-color: #ea4335;
-    border-radius: 10px;
-}
-
-/* Style the project links */
-.project-link {
-    display: block;
-    padding: 5px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-}
-
-/* Add a border on hover */
-.project-link:hover {
-    border-color: darkgray;
-    background-color: darkgray;
-    color: black;
-}
-
-@media screen and (max-width: 600px) {
-    table {
+    @media screen and (max-width: 768px) {
         font-size: small;
-    }
-
-    th, td {
-        padding: 5px;
-    }
-
-    .progress-bar {
-        height: 3px;
-    }
-
-    thead {
-        display: none;
-    }
-
-    tbody {
-        display: block;
-    }
-
-    tr {
-        margin-bottom: 10px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    td {
-        flex: 1 1 100%;
-    }
-
-    .project-link {
-        font-size: small;
-        margin: 3px;
+        padding-right: 0;
+        padding-left: 2px;
+        padding-bottom: 2%;
     }
 }
 
-/*Skills & Experience - Profile Page END*/
+.profile-card-paragraph li {
+    border-bottom: 1px solid #cccccc;
+    margin-left: 05%;
+    margin-right: 05%;
+
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.profile-photo {
+    border: #ccc solid 1px;
+}
+
+.profile-card-paragraph-tags {
+    padding-right: 1%;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+
+    @media screen and (max-width: 768px) {
+        font-size: medium;
+        padding-right: 0;
+    }
+}
+
+/* Profile Card END */
+
 
 /*Portfolio Page START*/
 
@@ -732,11 +744,11 @@ tbody tr:nth-child(even) {
 }
 
 .recent-project-card {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     padding: 10px;
     margin: 40px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    border: #ccc solid 1px;
     border-radius: 10px;
 }
 
@@ -801,7 +813,8 @@ tbody tr:nth-child(even) {
     }
 }
 
-/*All Projects START*/
+/* All Projects START */
+
 .all-project-container {
     text-align: center;
     padding: 20px;
@@ -810,14 +823,12 @@ tbody tr:nth-child(even) {
 .all-project-cards-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .all-project-card {
-    width: 500px; /* Adjust as needed */
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 450px;
     border-radius: 10px;
 }
 
@@ -825,18 +836,21 @@ tbody tr:nth-child(even) {
     width: 100%;
     max-height: 100px;
     object-fit: contain;
+    margin-top: 20px;
 }
 
 .all-project-status-and-cost,
 .all-project-developers-and-progress,
 .all-project-website-and-source-code {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 05px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-top: 10px;
+}
 
+.all-project-status-card,
+.all-project-cost-card,
+.all-project-developers-card,
+.all-project-progress-card {
+    align-items: center;
+    margin-right: 10px;
 }
 
 .all-project-status-card {
@@ -855,6 +869,8 @@ tbody tr:nth-child(even) {
     width: 20px;
     height: 20px;
     fill: white;
+    align-items: center;
+    visibility: hidden;
 }
 
 .all-status-value {
@@ -868,141 +884,149 @@ tbody tr:nth-child(even) {
     margin-bottom: 20px;
 }
 
-.progress-container {
-    display: flex;
-    align-items: center;
-}
-
-.all-project-disabled-button{
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: lightgrey;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 40px;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    justify-content: center;
-}
-
-.progress-bar {
-    height: 5px;
-    background-color: #1F7ABB;
-    border-radius: 10px;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
+/* Media Query for screens below 600px */
+@media (max-width: 600px) {
     .all-project-card {
         width: 90%;
+        margin-left: 15px;
+        margin-right: 15px;
+        align-items: center;
+    }
+
+    .all-project-card a.btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .all-project-status-icon {
+        visibility: hidden;
+    }
+
+    .all-status-value {
+        font-size: medium;
+    }
+
+    .all-project-description {
+        font-size: small;
     }
 }
 
-/*All Projects END*/
+/* Media Query for screens above 600px */
+@media (min-width: 600px) {
+    .all-project-card {
+        margin: 20px;
+    }
 
+    .all-project-status-icon {
+        width: 25px;
+        height: 25px;
+    }
 
+    .all-status-value {
+        font-size: x-large;
+    }
 
+    .all-project-description {
+        font-size: medium;
+    }
+}
+
+/* All Projects END */
 /*Portfolio Page END*/
 
+
 /*Contact Me Page START*/
-/* Add general styles for the container and typography */
+
 .contact-container {
     padding: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0;
+    max-width: 600px;
     font-family: 'Roboto', sans-serif;
     color: #333;
 }
 
 /* Style form fields */
+
 .input-field label {
-    padding-bottom: 20px;
     font-size: 16px;
-    color: #666;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .input-field input[type="text"],
 .input-field input[type="email"],
 .input-field input[type="tel"],
-.input-field textarea {
-    margin-top: 20px;
-    border: none;
-    border-bottom: 1px solid #ccc;
+.input-field textarea,
+.input-field select {
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     padding: 10px;
     width: 100%;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: "Roboto Regular", sans-serif;
+    font-size: 15px;
+
 }
 
-.input-field textarea{
-    margin-top: 50px;
-    width: 100%;
+.input-field textarea {
+    margin: 0 10px;
     height: 100px;
-}
-
-.input-field #subject{
-    margin-top: 20px;
+    font-family: "Roboto Regular", sans-serif;
+    font-size: 15px;
 }
 
 .input-field input[type="text"]:focus,
 .input-field input[type="email"]:focus,
 .input-field input[type="tel"]:focus,
-.input-field textarea:focus {
+.input-field textarea:focus,
+.input-field select:focus {
     border-color: #2196F3;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(33, 150, 243, 0.6);
 }
 
 /* Style select dropdown */
+
 .select-dropdown {
-    border: 1px solid #ccc !important;
-    padding: 30px;
-    border-radius: 2px;
+    border: none !important; /* Remove the default border */
 }
 
-/* Style submit button */
-.contact-btn {
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.contact-paragraph{
+.contact-paragraph {
     text-align: center;
-    justify-content: center;
-}
-
-.submit-button{
-    text-align: center;
-    justify-content: center;
-}
-
-.contact-btn:hover {
-    background-color: #0c7cd5;
 }
 
 /* Add responsive styles */
 @media (max-width: 768px) {
-    .input-field.col-md-6 {
-        width: 100% !important;
+    .input-field.col-12 {
+        width: 100%;
+        margin-bottom: 20px; /* Add some space between the fields */
     }
 
-    /* Adjust other responsive styles as needed */
 }
-
-/*Contact Me Page END*/
 
 /*Thank you & Success Pages START*/
 /* Apply styles to the container */
-.success-container {
+
+.message-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
+}
+
+.mdc-typography--headline6 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.mdc-typography--subtitle1 {
+    font-size: large;
 }
 
 /* Style the Material Design card */
+
 .mdc-card {
     width: 300px;
     padding: 16px;
@@ -1012,11 +1036,13 @@ tbody tr:nth-child(even) {
 }
 
 /* Center align the card content */
+
 .mdc-card__content {
     text-align: center;
 }
 
 /* Adjust button styling */
+
 .mdc-button {
     display: block;
     width: 100%;
@@ -1031,6 +1057,12 @@ tbody tr:nth-child(even) {
     align-items: center;
     height: 100vh;
     margin: 02% 0;
+    @media screen and (max-width: 768px) {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 .review-heading {
@@ -1044,8 +1076,14 @@ tbody tr:nth-child(even) {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 0;
-    margin-right: 0;
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+    @media screen and (max-width: 768px) {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 .review-form label {
@@ -1066,8 +1104,6 @@ tbody tr:nth-child(even) {
 }
 
 .submit-button {
-
-
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -1077,11 +1113,9 @@ tbody tr:nth-child(even) {
 
 
 /*Review Page END*/
-
-
 /*Thank you & Success Pages END*/
-
 /*footer START*/
+
 #footer-logo {
     color: black;
     font-family: 'brolink DEMO', sans-serif;
@@ -1118,7 +1152,7 @@ tbody tr:nth-child(even) {
 }
 
 #copyright {
-    color: gray;
+    color: grey;
     text-align: center;
     justify-content: center;
 }
