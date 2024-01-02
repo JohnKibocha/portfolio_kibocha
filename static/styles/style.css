@@ -731,6 +731,7 @@ th {
         display: none;
     }
 }
+
 /* Profile Card END */
 
 /*Portfolio Page START*/
@@ -743,6 +744,7 @@ th {
 }
 
 .recent-project-logo img {
+    margin-top: 15px;
     max-width: 200px;
     max-height: 200px;
     object-fit: contain;
@@ -784,8 +786,9 @@ th {
 }
 
 .all-project-logo img {
-    max-width: 400px;
-    max-height: 400px;
+    margin-top: 15px;
+    max-width: 200px;
+    max-height: 200px;
     object-fit: contain;
 }
 
@@ -803,7 +806,7 @@ th {
     margin-top: 10px;
 }
 
-.all-status-value{
+.all-status-value {
     color: white;
 }
 
@@ -812,7 +815,7 @@ th {
     font-weight: bold;
 }
 
-.all-project-developers .heading{
+.all-project-developers .heading {
     font-size: medium;
 }
 
@@ -839,7 +842,6 @@ th {
     }
 
 }
-
 
 
 /* Add hover and click effects to the buttons */
