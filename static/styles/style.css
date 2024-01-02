@@ -52,7 +52,7 @@ hr {
 
 .button {
     display: inline-block;
-    padding: 10px 100px;
+    padding: 10px 0;
     background-color: #1c4966; /* Changed the color to a material blue */
     color: #fff;
     text-decoration: none;
@@ -253,7 +253,7 @@ th {
     height: 6vh;
     margin: 20px auto;
     position: relative;
-    border: #000 solid 1px;
+    border: #ccc solid 2px;
     @media screen and (max-width: 768px) {
         height: 30px;
 
@@ -371,7 +371,7 @@ th {
     margin-right: 10%;
     padding: 1rem;
     background-color: #fff;
-    border: #ccc solid 1px;
+    border: #ccc solid 2px;
     border-radius: 0.438rem;
     text-align: center;
     @media screen and (max-width: 768px) {
@@ -418,7 +418,7 @@ th {
     }
 
     .column:not(:last-child) {
-        border-bottom: 1px solid #ccc; /* Added border bottom to non-last child */
+        border-bottom: 2px solid #ccc; /* Added border bottom to non-last child */
     }
 }
 
@@ -443,7 +443,7 @@ th {
     width: 300px;
     padding: 20px;
     margin: 10px;
-    border: #ccc solid 1px;
+    border: #ccc solid 2px;
     border-radius: 10px;
 }
 
@@ -459,7 +459,7 @@ th {
     margin: 10px 60px;
     text-align: center;
     justify-content: center;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     padding: 10px 45px;
     border-radius: 5px;
     background-color: #F0BD5F;
@@ -531,7 +531,7 @@ th {
     flex-direction: column;
     padding: 5px; /* Adjust padding here for smaller screens */
     text-align: center;
-    border: 1px solid #ccc; /* Replace box shadow with border */
+    border: 2px solid #ccc; /* Replace box shadow with border */
     border-radius: 5px;
     background-color: #fff;
 }
@@ -543,13 +543,13 @@ th {
 }
 
 .comment {
-    font-size: 1em;
+    font-size: 14pt;
     text-align: center;
     padding: 2px; /* Adjust padding for smaller screens */
 }
 
 .reviewer {
-    font-size: 1.1em;
+    font-size: 10pt;
     text-align: center;
     padding: 2px; /* Adjust padding for smaller screens */
 }
@@ -621,9 +621,6 @@ th {
 }
 
 /*Companies I have Worked With END*/
-
-/*Profile Card START*/
-
 /* Profile Card START */
 .profile-card {
     margin: 5%;
@@ -633,7 +630,7 @@ th {
     padding: 40px 30px;
     border-radius: 12px;
     background-color: #FFF;
-    border: #ccc solid 1px;
+    border: #ccc solid 2px;
     font-family: 'Roboto Regular', sans-serif;
     font-size: large;
 }
@@ -643,6 +640,7 @@ th {
     height: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+    object-fit: cover;
 }
 
 .profile-card h1 {
@@ -650,296 +648,245 @@ th {
     font-weight: 500;
     text-align: center;
     margin: 0 0 10px;
+    color: #333;
 }
 
 .profile-card ul {
     list-style: none;
     padding: 0;
     margin: 20px 0;
+    width: 80%;
 }
 
 .profile-card ul li {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
     font-size: large;
-    padding-bottom: 1%;
-    @media screen and (max-width: 768px) {
-        padding-left: 15px;
-        padding-right: 10px;
-        font-size: medium;
-    }
 }
 
 .profile-card ul li i {
     margin-right: 10px;
-    font-size: 35px;
+    font-size: 30px;
     color: darkslategrey;
 }
 
-#profile-card-heading{
-   font-size: 100px;
-}
-
-.profile-card-paragraph {
-    padding-left: 2%;
-    padding-right: 2%;
-    font-size: medium;
-    padding-bottom: 5%;
-
-    @media screen and (max-width: 768px) {
-        font-size: small;
-        padding-right: 0;
-        padding-left: 2px;
-        padding-bottom: 2%;
-    }
-}
-
-.profile-card-paragraph li {
-    border-bottom: 1px solid #cccccc;
-    margin-left: 05%;
-    margin-right: 05%;
-
-    @media screen and (max-width: 768px) {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-.profile-photo {
-    border: #ccc solid 1px;
-}
-
-.profile-card-paragraph-tags {
-    padding-right: 1%;
-    color: black;
-    font-size: large;
+.profile-card ul li span {
     font-weight: bold;
-
-    @media screen and (max-width: 768px) {
-        font-size: medium;
-        padding-right: 0;
-    }
+    color: #333;
 }
 
-/* Profile Card END */
+.profile-name {
+    font-size: 28px;
+    font-weight: 600;
+    color: #444;
+}
 
+.profile-info {
+    font-size: 18px;
+    color: #555;
+}
+
+.info-label {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-card {
+        padding: 20px 15px;
+    }
+
+    .profile-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-card h1 {
+        font-size: 16px;
+    }
+
+    .profile-card ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .profile-card ul li {
+        font-size: medium;
+        justify-content: center;
+    }
+
+    .profile-card ul li i {
+        font-size: 25px;
+    }
+
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .profile-info {
+        font-size: 14px;
+    }
+
+    .info-label {
+        display: none;
+    }
+}
+/* Profile Card END */
 
 /*Portfolio Page START*/
 
-.recent-project-container {
-    text-align: center;
-    padding: 20px;
-}
-
-
-.recent-project-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: hidden;
-    align-items: flex-end;
-}
+/*Recent Projects START*/
 
 .recent-project-card {
-    width: 300px;
-    height: 300px;
-    padding: 10px;
-    margin: 40px;
-    border: #ccc solid 1px;
-    border-radius: 10px;
+    max-width: 400px;
+
 }
 
 .recent-project-logo img {
-    width: 100%;
-    max-height: 100px;
+    max-width: 200px;
+    max-height: 200px;
     object-fit: contain;
 }
 
 .recent-project-status-card {
-    display: flex;
-    align-items: center;
-    margin: 05px 60px;
-    text-align: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    padding: 05px 45px;
-    border-radius: 5px;
-    background-color: #F0BD5F;
-}
-
-.recent-project-name {
-    padding-top: 5px;
-    font-size: medium;
-    font-weight: bold;
-    font-family: "Roboto Regular", sans-serif;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .recent-project-status-icon {
     margin-right: 5px;
-    width: 20px;
-    height: 20px;
-    fill: white;
 }
 
-.recent-status-value {
-    color: white;
-    font-weight: bold;
-    font-size: large;
-}
-
-.recent-project-description {
-    margin-top: 10px;
-}
-
-.view-portfolio {
-    margin-top: 20px;
-}
-
-.view-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+.recent-project-container {
+    margin-bottom: 10%;
 }
 
 @media (max-width: 768px) {
     .recent-project-card {
-        width: 90%;
+        width: 85%;
+        margin-left: 25px;
+
+        margin-bottom: 5%;
     }
+
 }
 
-/* All Projects START */
+/*Recent Projects END*/
 
-.all-project-container {
-    text-align: center;
-    padding: 20px;
-}
-
-.all-project-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+/*ALL Projects START*/
 
 .all-project-card {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 10px;
+    max-width: 600px;
+    margin-bottom: 5%;
+    margin-left: 5%;
+
 }
 
 .all-project-logo img {
-    width: 100%;
-    max-height: 100px;
+    max-width: 400px;
+    max-height: 400px;
     object-fit: contain;
-    margin-top: 20px;
-}
-
-.all-project-status-and-cost,
-.all-project-developers-and-progress,
-.all-project-website-and-source-code {
-    margin-top: 10px;
-}
-
-.all-project-status-card,
-.all-project-cost-card,
-.all-project-developers-card,
-.all-project-progress-card {
-    align-items: center;
-    margin-right: 10px;
 }
 
 .all-project-status-card {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    padding: 5px 45px;
-    border-radius: 5px;
-    background-color: #F0BD5F;
+    margin: 10px;
+    padding: 10px 40px;
+    border-radius: 10px;
 }
 
 .all-project-status-icon {
     margin-right: 5px;
-    width: 20px;
-    height: 20px;
-    fill: white;
-    align-items: center;
-    visibility: hidden;
 }
 
-.all-status-value {
-    color: white;
-    font-weight: bold;
-    font-size: large;
-}
-
-.all-project-description {
+.all-project-status-and-cost {
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
-/* Media Query for screens below 600px */
-@media (max-width: 600px) {
+.all-status-value{
+    color: white;
+}
+
+.all-project-cost .heading {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.all-project-developers .heading{
+    font-size: medium;
+}
+
+.all-project-developers .paragraph {
+    font-size: medium;
+}
+
+.all-project-website-and-source-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.all-project-website-and-source-code .btn {
+
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
     .all-project-card {
-        width: 90%;
+        width: 85%;
         margin-left: 15px;
         margin-right: 15px;
-        align-items: center;
     }
 
-    .all-project-card a.btn {
-        width: 100%;
-        margin: 10px 0;
-    }
+}
 
-    .all-project-status-icon {
-        visibility: hidden;
-    }
 
-    .all-status-value {
-        font-size: medium;
-    }
 
-    .all-project-description {
-        font-size: small;
+/* Add hover and click effects to the buttons */
+.all-project-website-and-source-code .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.all-project-website-and-source-code .btn:active {
+    transform: translateY(3px);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    width: 30%;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .button {
+        width: 80%;
     }
 }
 
-/* Media Query for screens above 600px */
-@media (min-width: 600px) {
-    .all-project-card {
-        margin: 20px;
-    }
-
-    .all-project-status-icon {
-        width: 25px;
-        height: 25px;
-    }
-
-    .all-status-value {
-        font-size: x-large;
-    }
-
-    .all-project-description {
-        font-size: medium;
-    }
+/* Add hover and click effects to the button */
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* All Projects END */
+.button:active {
+    transform: translateY(3px);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/*ALL Projects END*/
+
 /*Portfolio Page END*/
 
 
 /*Contact Me Page START*/
 
 .contact-container {
+    border: 2px solid #ccc;
+    border-radius: 10px;
     padding: 20px;
-    margin: 0;
+    margin: auto;
     max-width: 600px;
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -951,7 +898,8 @@ th {
     font-size: 16px;
     color: black;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 15px;
 }
 
 .input-field input[type="text"],
@@ -959,7 +907,7 @@ th {
 .input-field input[type="tel"],
 .input-field textarea,
 .input-field select {
-    margin: 0 10px;
+    /*margin: 10px 0px;*/
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
@@ -996,6 +944,7 @@ th {
     text-align: center;
 }
 
+
 /* Add responsive styles */
 @media (max-width: 768px) {
     .input-field.col-12 {
@@ -1004,6 +953,8 @@ th {
     }
 
 }
+
+/*Contact Me Page END*/
 
 /*Thank you & Success Pages START*/
 /* Apply styles to the container */
@@ -1017,7 +968,7 @@ th {
 }
 
 .mdc-typography--headline6 {
-    font-size: 60px;
+    font-size: 30pt;
     font-weight: bold;
 }
 
@@ -1028,7 +979,7 @@ th {
 /* Style the Material Design card */
 
 .mdc-card {
-    width: 300px;
+    width: 600px;
     padding: 16px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -1048,6 +999,8 @@ th {
     width: 100%;
     text-align: center;
 }
+
+/*Contact Me Page END*/
 
 /*Review Page START*/
 
@@ -1074,7 +1027,8 @@ th {
 .review-form {
     background-color: white;
     padding: 20px;
-    border-radius: 8px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /*margin-left: 0;*/
     /*margin-right: 0;*/
@@ -1097,7 +1051,7 @@ th {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
@@ -1113,6 +1067,8 @@ th {
 
 
 /*Review Page END*/
+
+
 /*Thank you & Success Pages END*/
 /*footer START*/
 

@@ -1,9 +1,11 @@
 from django.conf import settings
-from django.core.mail import send_mail
-from django.core.paginator import Paginator, EmptyPage
-from django.http import HttpResponseBadRequest
-from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.http import HttpResponseForbidden
+from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
+from django.template.loader import get_template
+from django.views.decorators.http import require_POST
 from .forms import ReviewForm
 from .models import Project, Review, Milestone, Skill, Contact, Profile
 
@@ -46,11 +48,28 @@ def portfolio_page(request):
 
 
 def review_page(request):
-    reviews = Review.objects.all()
+    reviews = Review.objects.filter(approved=True)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
+        form = ReviewForm(request.POST, request.FILES)  # Added request.FILES argument
         if form.is_valid():
-            form.save()
+            review = form.save()
+            subject = 'New comment from {}'.format(review.name)
+            message = 'You have a new comment from {} on your django app. \n\n{}\n\nDo you want to delete or publish this comment? \n\nTo delete, click here: {}\n\nTo publish, click here: {}'.format(
+                review.name, review.comment, 'delete_link', 'publish_link')
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = ['kibocha.alerts@gmail.com']
+
+            # Load the HTML template for the email content
+            html_content = get_template('review_email_template.html').render({
+                'name': review.name,
+                'place_of_work': review.place_of_work,
+                'job_description': review.job_description,
+                'comment': review.comment,
+                'created_at': review.created_at,
+            })
+
+            # Send the HTML email
+            send_mail(subject, message, email_from, recipient_list, html_message=html_content)
             return redirect('thankyou')
     else:
         form = ReviewForm()
@@ -83,17 +102,25 @@ def contact_me_page(request):
         )
         contact.save()
 
-        send_mail(
-            f"{subject}",
-            f"Name: {first_name} {last_name}\nEmail: {email}\nPhone: {phone_number}\nMessage: {message}",
-            # Email content
-            settings.DEFAULT_FROM_EMAIL,
-            ['johnkibocha@outlook.com'],
-            fail_silently=False,
-        )
+        email_subject = request.POST['subject']
 
+        subject = 'New comment from {}'.format(contact.first_name, contact.last_name)
+        message = ''
+        email_from = 'email'
+        recipient_list = ['kibocha.alerts@gmail.com']
+
+        # Load the HTML template for the email content
+        html_content = get_template('contact_me_email_template.html').render({
+            'first_name': contact.first_name,
+            'last_name': contact.last_name,
+            'email': contact.email,
+            'phone_number': contact.phone_number,
+            'message': contact.message,
+            'created_at': contact.timestamp,
+        })
+
+        send_mail(email_subject, message, email_from, recipient_list, html_message=html_content)
         return redirect('success')
-
     return render(request, 'contact-me.html')
 
 

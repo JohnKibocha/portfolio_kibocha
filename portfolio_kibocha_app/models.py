@@ -2,6 +2,8 @@ from datetime import date
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
+# from django.contrib.auth.models import User
+
 # Create your models here.
 
 DESIGNING = 'designing'
@@ -68,14 +70,16 @@ class Profile(models.Model):
         return age
 
 
+# Create a Review model to store the information of each review
 class Review(models.Model):
     profile_photo = models.ImageField(blank=True, null=True, upload_to='review_images',
                                       default='review_images/default_user.png', help_text='(Optional)')
     name = models.CharField(max_length=100)
-    where_do_you_work = models.CharField(max_length=100, null=True, blank=True)
-    what_do_you_do = models.CharField(max_length=100)
+    place_of_work = models.CharField(max_length=100, null=True, blank=True)
+    job_description = models.CharField(max_length=100)
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
 
 class Milestone(models.Model):

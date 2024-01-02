@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-tyd$8&%qs=x8i^@j@o&a&@kym6fhc^nmiu*so+_2bfcofk#w@u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['johnkibocha.pythonanywhere.com', '127.0.0.1']
 
 # Application definition
 
@@ -131,10 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Use your email backend configuration
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_HOST = 'smtp.gmail.com'  #
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'johnkibocha@outlook.com'
-EMAIL_HOST_PASSWORD = 'R3$t0r@t!v3h0m3w0rk'
-DEFAULT_FROM_EMAIL = 'johnkibocha@outlook.com'
-
+EMAIL_HOST_USER = 'kibocha.alerts@gmail.com'
+EMAIL_HOST_PASSWORD = 'ptszsnmtijarqeho'
+DEFAULT_FROM_EMAIL = 'kibocha.alerts@gmail.com'

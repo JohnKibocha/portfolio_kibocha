@@ -1,0 +1,96 @@
+<html>
+<head>
+
+    <style>
+        /* Add your email styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #444444;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #eeeeee;
+            border-radius: 10px;
+        }
+
+        .message {
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .contacts {
+            padding: 20px;
+            display: block;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contacts p {
+            margin: 0;
+        }
+
+        .contacts a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .buttons {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .buttons a {
+            display: block;
+            width: 70%;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+
+        .approve-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>{{ name }} commented on your portfolio</h2>
+
+    <div class="message">
+        <p><strong> On {{ created_at }}, {{ name }} {% if place_of_work %}
+            <span class="place-of-work"><i> from {{ place_of_work }}</i></span>
+        {% endif %} &nbsp; wrote:</strong></p>
+        <p> {{ comment |linebreaksbr|safe }}</p>
+    </div>
+
+    <div class="buttons">
+
+        <p><strong>Click Here to Approve the Comment</strong></p>
+        <a href="https://johnkibocha.pythonanywhere.com/admin" class="approve-button">Approve Comment</a>
+    </div>
+</div>
+</body>
+</html>

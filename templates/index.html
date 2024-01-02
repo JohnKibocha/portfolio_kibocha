@@ -145,15 +145,25 @@
         <h1 id="reviews" style="text-align: center">Comments & Reviews</h1>
         <div class="review-card-container">
             {% for review in reviews %}
-                <div class="review-card">
-                    <figure>
+            {% if review.approved %}
+            <div class="review-card">
+                <figure>
+                    
                         <img src="{{ review.profile_photo.url }}" alt="{{ review.name }}'s profile photo">
                         <figcaption>
                             <p class="comment">{{ review.comment }}</p>
-                            <p class="reviewer">{{ review.name }}. {{ review.what_do_you_do }}. {{ review.where_do_you_work }}</p>
+                            <p class="reviewer"><i>{{ review.name }}, {{ review.job_description }}</i>
+                                {% if review.place_of_work %}
+                                    <span class="place-of-work"><i> at {{ review.place_of_work }}</i></span>
+                                {% endif %}
+                            </p>
                         </figcaption>
-                    </figure>
-                </div>
+                    
+                </figure>
+            </div>
+                {% else %}
+                        <!-- If the review is not approved, skip it -->
+                    {% endif %}
             {% endfor %}
         </div>
         <br><br>

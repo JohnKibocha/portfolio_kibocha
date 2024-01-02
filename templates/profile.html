@@ -29,31 +29,41 @@
         <div class="profile-card">
             {% for profiles in profile %}
                 <img src="{{ profiles.profile_image.url }}" alt="Profile Photo" class="profile-photo">
-                <h1 style="font-size: x-large">John Muturi Kibocha</h1>
-                <ul class="profile-card-paragraph">
-                    <li><i class="material-icons">person</i> <span
-                            class="profile-card-paragraph-tags">Age: </span>{{ profiles.age }}</li>
-                    <li><i class="material-icons">location_on</i> <span
-                            class="profile-card-paragraph-tags">Address: </span> {{ profiles.address }}</li>
-                    <li><i class="material-icons">code</i> <span class="profile-card-paragraph-tags">Favorite Programming Languages: </span>
-                        {{ profiles.favorite_programming_languages }}
+                <h1 class="profile-name">{{ profiles.name }}</h1>
+                <ul class="profile-info">
+                    <li>
+                        <i class="material-icons">person</i>
+                        <span class="info-label">Age: </span>{{ profiles.age }}
                     </li>
-                    <li><i class="material-icons">info</i> <span class="profile-card-paragraph-tags">Additional Information: </span>
-                        {{ profiles.additional_information }}
+                    <li>
+                        <i class="material-icons">location_on</i>
+                        <span class="info-label">Address: </span>{{ profiles.address }}
                     </li>
-                    <li><i class="material-icons">work</i> <span
-                            class="profile-card-paragraph-tags">Occupation: </span>{{ profiles.occupation }}</li>
-                    <li><i class="material-icons">star</i> <span
-                            class="profile-card-paragraph-tags">Skills: </span>{{ profiles.skills }}</li>
-                    <li><i class="material-icons">timeline</i> <span
-                            class="profile-card-paragraph-tags">Experience: </span>{{ profiles.experience }}+ years in
-                        web
-                        development
+                    <li>
+                        <i class="material-icons">code</i>
+                        <span class="info-label">Favorite Programming Languages: </span>{{ profiles.favorite_programming_languages }}
+                    </li>
+                    <li>
+                        <i class="material-icons">info</i>
+                        <span class="info-label">Additional Information: </span>{{ profiles.additional_information }}
+                    </li>
+                    <li>
+                        <i class="material-icons">work</i>
+                        <span class="info-label">Occupation: </span>{{ profiles.occupation }}
+                    </li>
+                    <li>
+                        <i class="material-icons">star</i>
+                        <span class="info-label">Skills: </span>{{ profiles.skills }}
+                    </li>
+                    <li>
+                        <i class="material-icons">timeline</i>
+                        <span class="info-label">Experience: </span>{{ profiles.experience }}+ years in web development
                     </li>
                 </ul>
             {% endfor %}
         </div>
     </article>
+
 
     <article aria-labelledby="about-me">
 
@@ -71,7 +81,7 @@
     <br><br>
     <article aria-labelledby="milestones">
         <h1 class="heading" style="text-align: center; font-size: 24px">MileStones</h1>
-        <div class="table-container table-responsive ">
+        <div class="table-container table-responsive">
             <table class="table table-bordered table-hover table-lg overflow-hidden">
                 <thead class="bg-dark text-white"> <!-- thead with background and text color classes -->
                 <tr>
@@ -104,7 +114,7 @@
     <article aria-labelledby="skills-card">
         <h1 class="container heading" style="font-size: larger;">What I can Do</h1>
         <div class="table-container table-responsive ">
-            <table class="table table-bordered table-hover table-lg overflow-hidden">
+            <table class="table table-bordered table-hover table table-lg overflow-hidden">
                 <thead class="bg-dark text-white">
                 <tr>
                     <th class="align-middle">Skills</th>
@@ -120,7 +130,7 @@
                         <td>{{ skill.name }}</td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                <div class="progress-bar " role="progressbar"
                                      aria-valuenow="{{ skill.progress }}" aria-valuemin="0" aria-valuemax="100"
                                      style="width: {{ skill.progress }}%">{{ skill.progress }}%
                                 </div>

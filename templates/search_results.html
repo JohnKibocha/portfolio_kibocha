@@ -27,92 +27,99 @@
     <article>
         {% if query %}
             {% if results %}
-                <div class="all-project-cards-container">
-                    {% for result in results %}
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card all-project-card mb-4 m-md-0">
-                                <div class="all-project-logo">
-                                    <img src="{{ result.logo.url }}" alt="Project Logo" class="card-img-top">
+                <div class="all-project-cards-container row row-cols-1 row-cols-lg-2 g-4">
+                {% for result in results %}
+                    <div class="all-project-card col">
+                        <div class="card h-100 mt-4">
+                            <div class="all-project-logo card-img-top d-flex align-items-center justify-content-center">
+                                <img src="{{ result.logo.url }}" alt="Project Logo" class="img-fluid">
+                            </div>
+                            <div class="card-body">
+                                <div class="all-project-name card-title text-center">{{ result.name }}</div>
+                                <div class="all-project-github-status text-center">
+                                    <!-- Use a badge to indicate the github status -->
+                                    {% if result.github_status == 'public' %}
+                                        <span class="badge bg-success">Public</span>
+                                    {% elif result.github_status == 'private' %}
+                                        <span class="badge bg-warning">Private</span>
+                                    {% endif %}
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ result.name }} ({{ result.github_status |capfirst }})</h5>
-                                    <p class="card-text all-project-description">{{ result.description }}</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <div class="all-project-status">
-                                            Status:
-                                            {% get_project_status_info result.status as status_info %}
-                                            <div class="all-project-status-card"
-                                                 style="background-color: {{ status_info.color }};">
-                                                <div class="all-project-status-icon">
-                                                    <img src="{{ status_info.icon }}" alt="Project Status" width="20px"
-                                                         height="20px">
-                                                </div>
-                                                <div class="all-status-value">{{ result.get_status_display }}</div>
+                                <div class="all-project-description card-text text-center">{{ result.description }}</div>
+                                <div class="all-project-status-and-cost row">
+                                    <div class="all-project-status col-12 d-flex align-items-center justify-content-center">
+                                        <!-- Use the get_project_status_info template tag to get the icon URL and background color for the project status -->
+                                        {% get_project_status_info result.status as status_info %}
+                                        <div class="all-project-status-card d-flex align-items-center justify-content-center"
+                                             style="background-color: {{ status_info.color }};">
+                                            <div class="all-project-status-icon">
+                                                <img src="{{ status_info.icon }}" alt="Project Status" width="20px"
+                                                     height="20px">
                                             </div>
+                                            <div class="all-status-value">{{ result.get_status_display }}</div>
                                         </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="all-project-cost">
-                                            <p class="heading">Cost: KES {{ result.cost|intcomma }}.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="all-project-developers">
-                                            <p class="paragraph">Developers: {{ result.developers }}</p>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="all-project-progress">
-                                            Progress:
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                     role="progressbar" aria-valuenow="{{ result.progress }}"
-                                                     aria-valuemin="0"
-                                                     aria-valuemax="100" style="width: {{ result.progress }}%;">
-                                                    {{ result.progress }}%
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="card-body all-project-website-and-source-code">
-                                    <div class="all-project-website">
-                                        {% if result.website %}
-                                            <a href="{{ result.website }}" class="btn btn-primary ">
-                                                View Website
-                                            </a>
-                                        {% else %}
-                                            <button class="btn btn-secondary" disabled>
-                                                View Website
-                                            </button>
-                                        {% endif %}
                                     </div>
-                                    <div class="all-project-source-code">
-                                        {% if result.github_status == 'public' %}
-                                            <a href="{{ result.source_code }}" class="btn btn-primary">
-                                                View Source Code
-                                            </a>
-                                        {% elif result.github_status == 'private' %}
-                                            <div class="contact-developer-button">
-                                                <a href="{% url 'contact-me' %}" class="btn btn-primary">
-                                                    Request Source Code
-                                                </a>
+                                    <div class="all-project-cost col-12">
+                                        <h4 class="heading">Cost:</h4>
+                                        <p class="paragraph">KES {{ result.cost|intcomma }}.00</p>
+                                    </div>
+                                    <div class="all-project-developers col-12">
+                                        <h4 class="heading">Developers:</h4>
+                                        <p class="paragraph">{{ result.developers }}</p>
+                                    </div>
+                                    <div class="all-projects-progress col-12">
+                                        <div class="progress-container">
+                                            <div><strong>Progress: {{ result.progress }}% </strong>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar"
+                                                         style="width: {{ result.progress }}%; background-color: {{ result.progress }}; height: 30px;"
+                                                         aria-valuenow="{{ result.progress }}" aria-valuemin="0"
+                                                         aria-valuemax="{{ result.progress }}% "></div>
+                                                </div>
                                             </div>
-                                        {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="all-project-website-and-source-code card-footer">
+                                <div class="all-project-website d-grid gap-2 mb-2">
+                                    {% if result.website %}
+                                        <a href="{{ result.website }}" class="btn btn-primary rounded-pill" >
+                                            View Website
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-secondary rounded-pill" disabled>
+                                            View Website
+                                        </button>
+                                    {% endif %}
+                                </div>
+                                <div class="all-project-source-code d-grid gap-2">
+                                    {% if result.github_status == 'public' %}
+                                        <div class="all-project-source-code">
+                                            <a href="{{ result.source_code }}"
+                                               class="btn btn-primary rounded-pill">
+                                                View Source Code
+                                            </a>
+                                        </div>
+                                    {% elif result.github_status == 'private' %}
+                                        <div class="contact-developer-button">
+                                            <a href="{% url 'contact-me' %}" class="btn btn-primary rounded-pill">
+                                                Contact Developer
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
             {% else %}
                 <article>
                     <div class="message-container">
                         <div class="mdc-card">
                             <div class="mdc-card__content">
-                                <div class="mdc-typography mdc-typography--headline6">⚠️ Sorry!</div>
+                                <div class="mdc-typography mdc-typography--headline6">Sorry!</div>
                                 <div class="mdc-typography mdc-typography--subtitle1">Could not find "{{ query }}" in
                                     the database.
                                 </div>

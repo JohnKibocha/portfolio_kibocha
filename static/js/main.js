@@ -41,7 +41,6 @@ document.getElementById('search-input').addEventListener('keyup', function (even
 // Search Bar END
 
 
-
 // Navigation Bar START
 function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -94,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showReview(currentReview);
 
     // Set an interval to automatically show the next review every 5 seconds
-    setInterval(showNextReview, 10000);
+    setInterval(showNextReview, 7000);
 
     // Add event listeners to the navigation buttons
     var previousButton = document.querySelector(".chevron.left");

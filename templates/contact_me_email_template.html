@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Kibocha's Email Page">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
+    <meta name="author" content="Kibocha John">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your email styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #444444;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #eeeeee;
+            border-radius: 10px;
+        }
+
+        .message {
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .contacts {
+            padding: 20px;
+            display: block;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contacts p {
+            margin: 0;
+        }
+
+        .contacts a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>You have a new message from {{ first_name }} {{ last_name }}</h2>
+        
+        <div class="message">
+            <p><strong>On {{ created_at }}, {{ first_name }} {{ last_name }} wrote:</strong></p>
+            <p> {{ message |linebreaksbr|safe }}</p>
+        </div>
+        
+        <div class="contacts">
+            <p><strong>Respond via:</strong></p>
+            <p>{{ first_name }} {{ last_name }}</p> 
+            <p><strong>Email:</strong> <a href="{{ email }}">{{ email }}</a></p>
+            <p type="tel"><strong>Phone:</strong> {{ phone_number }}</p>
+        </div>
+    </div>
+</body>
+
+</html>
