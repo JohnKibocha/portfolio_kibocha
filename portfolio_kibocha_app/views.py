@@ -53,11 +53,11 @@ def review_page(request):
         form = ReviewForm(request.POST, request.FILES)  # Added request.FILES argument
         if form.is_valid():
             review = form.save()
-            subject = 'New comment from {}'.format(review.name)
+            subject = '[Kibocha.com] New comment from {}'.format(review.name)
             message = 'You have a new comment from {} on your django app. \n\n{}\n\nDo you want to delete or publish this comment? \n\nTo delete, click here: {}\n\nTo publish, click here: {}'.format(
                 review.name, review.comment, 'delete_link', 'publish_link')
             email_from = settings.EMAIL_HOST_USER
-            recipient_list = ['kibocha.alerts@gmail.com']
+            recipient_list = ['jonkibocha@gmail.com']
 
             # Load the HTML template for the email content
             html_content = get_template('review_email_template.html').render({
@@ -102,12 +102,11 @@ def contact_me_page(request):
         )
         contact.save()
 
-        email_subject = request.POST['subject']
+        email_subject = '[Kibocha.com] {}'.format(request.POST['subject'])
 
-        subject = 'New comment from {}'.format(contact.first_name, contact.last_name)
         message = ''
         email_from = 'email'
-        recipient_list = ['kibocha.alerts@gmail.com']
+        recipient_list = ['jonkibocha@gmail.com']
 
         # Load the HTML template for the email content
         html_content = get_template('contact_me_email_template.html').render({
@@ -122,6 +121,7 @@ def contact_me_page(request):
         send_mail(email_subject, message, email_from, recipient_list, html_message=html_content)
         return redirect('success')
     return render(request, 'contact-me.html')
+
 
 
 def thankyou_page(request):

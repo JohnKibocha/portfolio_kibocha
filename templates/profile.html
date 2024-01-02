@@ -58,6 +58,7 @@
                     <li>
                         <i class="material-icons">timeline</i>
                         <span class="info-label">Experience: </span>{{ profiles.experience }}+ years in web development
+
                     </li>
                 </ul>
             {% endfor %}
@@ -80,31 +81,38 @@
     </article>
     <br><br>
     <article aria-labelledby="milestones">
-        <h1 class="heading" style="text-align: center; font-size: 24px">MileStones</h1>
+        <h1 class="heading" style="text-align: center; font-size: 24px">Milestones</h1>
+
+        <!-- Improved table container with Bootstrap classes -->
         <div class="table-container table-responsive">
+
+            <!-- Bootstrap table classes -->
             <table class="table table-bordered table-hover table-lg overflow-hidden">
-                <thead class="bg-dark text-white"> <!-- thead with background and text color classes -->
+
+                <!-- Bootstrap thead classes -->
+                <thead class="bg-dark text-white">
                 <tr>
-                    <th class="align-middle">Start Date</th> <!-- th with align-middle class -->
+                    <th class="align-middle">Start Date</th>
                     <th class="align-middle">End Date</th>
                     <th class="align-middle">Description</th>
                     <th class="align-middle">Organization</th>
                 </tr>
                 </thead>
+
                 <!-- Table body -->
                 <tbody>
                 {% for milestone in milestones %}
                     <tr>
-                        <td class="align-middle">{{ milestone.start_date|date:"M Y" }}</td>
-                        <!-- td with align-middle class -->
-                        <td class="align-middle">{{ milestone.end_date|date:"M Y" }}</td>
-                        <td class="align-middle">{{ milestone.description }}</td>
-                        <td class="align-middle">{{ milestone.organization }}</td>
+                        <td class="align-middle" data-label="Start Date">{{ milestone.start_date|date:"M Y" }}</td>
+                        <td class="align-middle" data-label="End Date">{{ milestone.end_date|date:"M Y" }}</td>
+                        <td class="align-middle" data-label="Description">{{ milestone.description }}</td>
+                        <td class="align-middle" data-label="Organization">{{ milestone.organization }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
+
         <div class="container">
             <p style="text-align: center">Want to learn more? </p>
             <a href="{% url 'contact-me' %}" class="button" style="">Request Resume</a>

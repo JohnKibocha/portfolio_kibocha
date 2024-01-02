@@ -6,7 +6,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Django, Python">
     <meta name="author" content="Kibocha John">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../static/icons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
@@ -15,14 +15,15 @@
 </head>
 <body>
 <article>
-    <div class="message-container">
+    <div class="message-container container">
         <div class="mdc-card">
             <div class="mdc-card__content">
                 <div class="mdc-typography mdc-typography--headline6">Thank you for your comment!</div>
                 <div class="mdc-typography mdc-typography--subtitle1">Your comment has been submitted successfully.</div>
             </div>
+            <br>
             <div class="mdc-card__actions">
-                <a href="{% url 'index' %}" class="mdc-button mdc-card__action">Back to Home</a>
+                <a href="{% url 'index' %}" class="button">Back to Home</a>
             </div>
         </div>
     </div>

@@ -691,6 +691,57 @@ th {
     margin-right: 10px;
 }
 
+/* Improved table styles */
+.table-container {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px; /* Add some space between the card and the table */
+}
+
+@media screen and (max-width: 768px) {
+    /* Responsive table to card styles */
+    .table-container {
+        border-radius: 12px; /* Keep the border-radius for consistency */
+        overflow: hidden; /* Hide overflowing content */
+    }
+
+    .table-container table {
+        width: 100%; /* Make the table take up the full width of the container */
+    }
+
+    .table-container table, .table-container thead, .table-container tbody, .table-container th, .table-container td, .table-container tr {
+        display: block; /* Change display to block for better stacking on small screens */
+    }
+
+    .table-container thead tr {
+        position: absolute; /* Position the header at the top */
+        top: -9999px; /* Move it out of the viewport */
+        left: -9999px;
+    }
+
+    .table-container tbody tr {
+        border: 2px solid #ccc; /* Add borders to each row for card-like appearance */
+        margin-bottom: 10px; /* Add some space between rows */
+    }
+
+    .table-container td {
+        border: none; /* Remove borders from cells */
+        border-bottom: 1px solid #ddd; /* Add a bottom border to separate cells */
+        position: relative; /* Position cells relative to their container */
+        padding-left: 50%; /* Add space for the left border */
+    }
+
+    .table-container td:before {
+        content: attr(data-label); /* Display the data-label content before each cell content */
+        position: absolute; /* Position the label absolutely */
+        left: 6px; /* Adjust the left position */
+        width: 45%; /* Adjust the width to create space for the label */
+        padding-right: 10px; /* Add space between label and content */
+        white-space: nowrap; /* Prevent wrapping */
+        font-weight: bold; /* Make the label bold */
+    }
+}
+
 @media screen and (max-width: 768px) {
     .profile-card {
         padding: 20px 15px;
